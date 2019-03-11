@@ -1,0 +1,38 @@
+{
+  "name": "azure-devops-sdk",
+  "version": "0.0.1",
+  "description": "Azure DevOps REST API",
+  "main": "release/devops.js",
+  "readme": "readme.md",
+  "homepage": "https://github.com/sowderca/azure-devops-sdk#readme",
+  "private": false,
+  "author": "Cameron Sowder <cameron@sowder.io> (http://sowder.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sowderca/azure-devops-sdk/issues"
+  },
+  "keywords": [
+    "vsts",
+    "azure-devops"
+  ],
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "npx tsc --pretty",
+    "test": "npx tsc --pretty --noEmit",
+    "document": "npx typedoc . --out docs --ignoreCompilerErrors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sowderca/azure-devops-sdk.git"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.0.1",
+    "query-string": "^6.3.0"
+  },
+  "devDependencies": {
+    "typedoc": "^0.14.2",
+    "typescript": "^3.3.3333"
+  }
+}

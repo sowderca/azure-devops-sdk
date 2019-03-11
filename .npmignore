@@ -1,0 +1,8 @@
+# Folders
+.vscode/
+docs/
+src/
+
+# Files
+.DS_Store
+tsconfig.json
