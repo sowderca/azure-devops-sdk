@@ -34,7 +34,7 @@ action "document" {
 
 action "deploy-docs-site" {
   uses    = "maxheld83/ghpages@v0.2.1"
-  secrets = ["GITHUB_PAT"]
+  secrets = ["GH_PAT"]
 
   env = {
     BUILD_DIR = "docs/"
