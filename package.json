@@ -21,7 +21,7 @@
   "scripts": {
     "build": "npx tsc --pretty",
     "test": "npx tsc --pretty --noEmit",
-    "document": "npx typedoc . --out docs --ignoreCompilerErrors"
+    "document": "npx typedoc src --out docs --includeDeclarations --ignoreCompilerErrors"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "query-string": "^6.3.0"
   },
   "devDependencies": {
+    "eslint": "^5.15.1",
     "typedoc": "^0.14.2",
     "typescript": "^3.3.3333"
   }

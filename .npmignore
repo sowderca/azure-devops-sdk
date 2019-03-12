@@ -1,8 +1,14 @@
 # Folders
 .vscode/
+.github/
 docs/
+scripts/
 src/
 
 # Files
 .DS_Store
+.eslintrc
+.editorconfig
+.nvmrc
+.node-version
 tsconfig.json
