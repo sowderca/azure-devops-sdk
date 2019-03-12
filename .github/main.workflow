@@ -1,11 +1,8 @@
 workflow "release" {
   on = "push"
-  resolves = ["publish"]
-}
-
-action "install" {
-  uses = "actions/npm@master"
-  args = "install"
+  resolves = [
+    "publish"
+  ]
 }
 
 action "filter-branch" {
@@ -13,7 +10,14 @@ action "filter-branch" {
   args = "branch master"
 }
 
+action "install" {
+  needs = "filter-branch"
+  uses = "actions/npm@master"
+  args = "install"
+}
+
 action "document" {
+  needs "install"
   uses = "actions/npm@master"
   args = "run document"
 }
