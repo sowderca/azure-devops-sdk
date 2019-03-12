@@ -17,7 +17,7 @@ action "install" {
 }
 
 action "document" {
-  needs "install"
+  needs = "install"
   uses = "actions/npm@master"
   args = "run document"
 }
