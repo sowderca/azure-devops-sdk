@@ -442,9 +442,36 @@ export class ApiClient {
     public readonly WorkItemsApi: WorkItemsApi;
     private readonly authKey: string;
     private readonly host: string;
+    /**
+     * Create an instance of the ApiClient wrapper class using the default host URL. If called this way the organization must be passed in when invoking methods that call the REST API.
+     * @constructor
+     * @param key - Personal Access Token
+     */
+
     public constructor(key: string);
+    /**
+     * Creates an instance of the ApiClient wrapper class using the default host URL. If called this way the organization must be passed in when invoking methods that call the REST API.
+     * @constructor
+     * @param key - Personal Access Token
+     * @param username - The username or email address
+     */
+
     public constructor(key: string, username: string);
+    /**
+     * Creates an instance of the ApiClient wrapper class, appending the specified organization to the default URL.
+     * @constructor
+     * @param key - Personal Access Token
+     * @param username - The username or email address
+     * @param organization - The organization to be appended to the URL.
+     */
     public constructor(key: string, username: string, organization: string);
+    /**
+     * Creates an instance of the ApiClient wrapper class, appending the specified organization to the default URL.
+     * @constructor
+     * @param key - Personal Access Token
+     * @param username - The username or email address
+     * @param organization - The organization to be appended to the URL.
+     */
     public constructor(key: string, username?: string, organization?: string) {
         this.host = 'https://dev.azure.com/';
         if (username) {

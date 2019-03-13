@@ -1,6 +1,6 @@
 {
   "name": "azure-devops-sdk",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Azure DevOps REST API",
   "main": "release/devops.js",
   "readme": "readme.md",
@@ -21,7 +21,7 @@
   "scripts": {
     "build": "npx tsc --pretty",
     "test": "npx tsc --pretty --noEmit",
-    "document": "npx typedoc src --out docs --includeDeclarations --ignoreCompilerErrors"
+    "document": "npx typedoc --mode modules --name azure-devops-sdk --out ./docs --excludeExternals --ignoreCompilerErrors --readme ./README.md ./src"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "eslint": "^5.15.1",
     "typedoc": "^0.14.2",
+    "typedoc-plugin-nojekyll": "^1.0.1",
     "typescript": "^3.3.3333"
   }
 }
