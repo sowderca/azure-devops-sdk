@@ -726,3 +726,6 @@ export class ApiClient {
         });
     }
 }
+
+export * from './api/api';
+export default ApiClient
