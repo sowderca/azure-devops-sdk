@@ -1,7 +1,7 @@
 import * as querystring from 'query-string';
 import fetch from 'cross-fetch';
 import { assign } from '../helpers/assign';
-import { ArrayWrapper } from './wrapper.ts';
+import { ArrayWrapper } from './wrapper';
 
 export type ERRORUNKNOWN = any;
 
