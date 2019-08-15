@@ -28117,7 +28117,7 @@ export interface YamlSourceReference {
          * @param includeExtendedInfo If true, populate the extended information properties for the access control entries contained in the returned lists.
          * @param recurse If true and this is a hierarchical namespace, return child ACLs of the specified token.
          */
-        public queryAccessControlLists (params: {  securityNamespaceId: string; organization: string; apiVersion: string; token?: string; descriptors?: string; includeExtendedInfo?: boolean; recurse?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapperWrapper<AccessControlList>> {
+        public queryAccessControlLists (params: {  securityNamespaceId: string; organization: string; apiVersion: string; token?: string; descriptors?: string; includeExtendedInfo?: boolean; recurse?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<AccessControlList>> {
             const localVarPath = this.basePath + '/{organization}/_apis/accesscontrollists/{securityNamespaceId}'
                 .replace('{' + 'securityNamespaceId' + '}', String(params.securityNamespaceId))
                 .replace('{' + 'organization' + '}', String(params.organization));
