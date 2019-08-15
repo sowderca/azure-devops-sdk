@@ -1,6 +1,7 @@
 import * as querystring from 'query-string';
 import fetch from 'cross-fetch';
 import { assign } from '../helpers/assign';
+import { ArrayWrapper } from './wrapper.ts';
 
 export type ERRORUNKNOWN = any;
 
@@ -28038,7 +28039,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public setAccessControlEntries (params: {  body: JObject; securityNamespaceId: string; organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<AccessControlEntry>> {
+        public setAccessControlEntries (params: {  body: JObject; securityNamespaceId: string; organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<AccessControlEntry>> {
             const localVarPath = this.basePath + '/{organization}/_apis/accesscontrolentries/{securityNamespaceId}'
                 .replace('{' + 'securityNamespaceId' + '}', String(params.securityNamespaceId))
                 .replace('{' + 'organization' + '}', String(params.organization));
@@ -28116,7 +28117,7 @@ export interface YamlSourceReference {
          * @param includeExtendedInfo If true, populate the extended information properties for the access control entries contained in the returned lists.
          * @param recurse If true and this is a hierarchical namespace, return child ACLs of the specified token.
          */
-        public queryAccessControlLists (params: {  securityNamespaceId: string; organization: string; apiVersion: string; token?: string; descriptors?: string; includeExtendedInfo?: boolean; recurse?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<AccessControlList>> {
+        public queryAccessControlLists (params: {  securityNamespaceId: string; organization: string; apiVersion: string; token?: string; descriptors?: string; includeExtendedInfo?: boolean; recurse?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapperWrapper<AccessControlList>> {
             const localVarPath = this.basePath + '/{organization}/_apis/accesscontrollists/{securityNamespaceId}'
                 .replace('{' + 'securityNamespaceId' + '}', String(params.securityNamespaceId))
                 .replace('{' + 'organization' + '}', String(params.organization));
@@ -28320,7 +28321,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getRecentActivityData (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<AccountRecentActivityWorkItemModel2>> {
+        public getRecentActivityData (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<AccountRecentActivityWorkItemModel2>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/accountmyworkrecentactivity'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -28383,7 +28384,7 @@ export interface YamlSourceReference {
          * @param memberId ID for a member of the accounts.
          * @param properties 
          */
-        public getAccounts (params: {  apiVersion: string; ownerId?: string; memberId?: string; properties?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Account>> {
+        public getAccounts (params: {  apiVersion: string; ownerId?: string; memberId?: string; properties?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Account>> {
             const localVarPath = this.basePath + '/_apis/accounts';
 
             let queryParameters: any = assign({}, extraQueryParams);
@@ -28456,7 +28457,7 @@ export interface YamlSourceReference {
          * @param actionPath Path of a specific action, used to get just that action.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          */
-        public getActionResults (params: {  organization: string; project: string; runId: number; testCaseResultId: number; iterationId: number; actionPath: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestActionResultModel>> {
+        public getActionResults (params: {  organization: string; project: string; runId: number; testCaseResultId: number; iterationId: number; actionPath: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestActionResultModel>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/Results/{testCaseResultId}/Iterations/{iterationId}/actionresults/{actionPath}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -28841,7 +28842,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getAgentClouds (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TaskAgentCloud>> {
+        public getAgentClouds (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TaskAgentCloud>> {
             const localVarPath = this.basePath + '/{organization}/_apis/distributedtask/agentclouds'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -28902,7 +28903,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getAgentCloudTypes (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TaskAgentCloudType>> {
+        public getAgentCloudTypes (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TaskAgentCloudType>> {
             const localVarPath = this.basePath + '/{organization}/_apis/distributedtask/agentcloudtypes'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -29294,7 +29295,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param type Filters the results based on the plugin type.
          */
-        public getApplications (params: {  organization: string; apiVersion: string; type?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Application>> {
+        public getApplications (params: {  organization: string; apiVersion: string; type?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Application>> {
             const localVarPath = this.basePath + '/{organization}/_apis/clt/apm/applications'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -29368,7 +29369,7 @@ export interface YamlSourceReference {
          * @param queryOrder Gets the results in the defined order of created approvals. Default is &#39;descending&#39;.
          * @param includeMyGroupApprovals &#39;true&#39; to include my group approvals. Default is &#39;false&#39;.
          */
-        public getApprovals (params: {  organization: string; project: string; apiVersion: string; assignedToFilter?: string; statusFilter?: string; releaseIdsFilter?: string; typeFilter?: string; top?: number; continuationToken?: number; queryOrder?: string; includeMyGroupApprovals?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ReleaseApproval>> {
+        public getApprovals (params: {  organization: string; project: string; apiVersion: string; assignedToFilter?: string; statusFilter?: string; releaseIdsFilter?: string; typeFilter?: string; top?: number; continuationToken?: number; queryOrder?: string; includeMyGroupApprovals?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ReleaseApproval>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/release/approvals'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -29826,7 +29827,7 @@ export interface YamlSourceReference {
          * @param isListed Only applicable for NuGet packages.  If false, delisted package versions will be returned.
          * @param isDeleted Return deleted or unpublished versions of packages in the response. Default is unset (do not return deleted versions).
          */
-        public getPackageVersions (params: {  organization: string; feedId: string; packageId: string; apiVersion: string; includeUrls?: boolean; isListed?: boolean; isDeleted?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PackageVersion>> {
+        public getPackageVersions (params: {  organization: string; feedId: string; packageId: string; apiVersion: string; includeUrls?: boolean; isListed?: boolean; isDeleted?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PackageVersion>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/Packages/{packageId}/versions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId))
@@ -29909,7 +29910,7 @@ export interface YamlSourceReference {
          * @param isCached [Obsolete]  Used for legacy scenarios and may be removed in future versions.
          * @param directUpstreamId Filter results to return packages from a specific upstream.
          */
-        public getPackages (params: {  organization: string; feedId: string; apiVersion: string; protocolType?: string; packageNameQuery?: string; normalizedPackageName?: string; includeUrls?: boolean; includeAllVersions?: boolean; isListed?: boolean; getTopPackageVersions?: boolean; isRelease?: boolean; includeDescription?: boolean; $Top?: number; $Skip?: number; includeDeleted?: boolean; isCached?: boolean; directUpstreamId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ModelPackage>> {
+        public getPackages (params: {  organization: string; feedId: string; apiVersion: string; protocolType?: string; packageNameQuery?: string; normalizedPackageName?: string; includeUrls?: boolean; includeAllVersions?: boolean; isListed?: boolean; getTopPackageVersions?: boolean; isRelease?: boolean; includeDescription?: boolean; $Top?: number; $Skip?: number; includeDeleted?: boolean; isCached?: boolean; directUpstreamId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ModelPackage>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/packages'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId));
@@ -30018,7 +30019,7 @@ export interface YamlSourceReference {
          * @param feedId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public queryPackageMetrics (params: {  organization: string; body: PackageMetricsQuery; feedId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PackageMetrics>> {
+        public queryPackageMetrics (params: {  organization: string; body: PackageMetricsQuery; feedId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PackageMetrics>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/packagemetricsbatch'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId));
@@ -30079,7 +30080,7 @@ export interface YamlSourceReference {
          * @param packageId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public queryPackageVersionMetrics (params: {  organization: string; body: PackageVersionMetricsQuery; feedId: string; packageId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PackageVersionMetrics>> {
+        public queryPackageVersionMetrics (params: {  organization: string; body: PackageVersionMetricsQuery; feedId: string; packageId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PackageVersionMetrics>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/Packages/{packageId}/versionmetricsbatch'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId))
@@ -30157,7 +30158,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getWorkArtifactLinkTypes (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkArtifactLink>> {
+        public getWorkArtifactLinkTypes (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkArtifactLink>> {
             const localVarPath = this.basePath + '/{organization}/_apis/wit/artifactlinktypes'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -30361,7 +30362,7 @@ export interface YamlSourceReference {
          * @param buildId The ID of the build.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.5&#39; to use this version of the api.
          */
-        public getArtifacts (params: {  organization: string; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildArtifact>> {
+        public getArtifacts (params: {  organization: string; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildArtifact>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/artifacts'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -30873,7 +30874,7 @@ export interface YamlSourceReference {
          * @param type The type of attachment.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getAttachments (params: {  organization: string; project: string; buildId: number; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Attachment>> {
+        public getAttachments (params: {  organization: string; project: string; buildId: number; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Attachment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/attachments/{type}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -31040,7 +31041,7 @@ export interface YamlSourceReference {
          * @param type Type of the attachment.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getReleaseTaskAttachments (params: {  organization: string; project: string; releaseId: number; environmentId: number; attemptId: number; planId: string; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ReleaseTaskAttachment>> {
+        public getReleaseTaskAttachments (params: {  organization: string; project: string; releaseId: number; environmentId: number; attemptId: number; planId: string; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ReleaseTaskAttachment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/release/releases/{releaseId}/environments/{environmentId}/attempts/{attemptId}/plan/{planId}/attachments/{type}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -31216,7 +31217,7 @@ export interface YamlSourceReference {
          * @param type Type of the attachment.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getTaskAttachments (params: {  organization: string; project: string; releaseId: number; environmentId: number; attemptId: number; timelineId: string; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ReleaseTaskAttachment>> {
+        public getTaskAttachments (params: {  organization: string; project: string; releaseId: number; environmentId: number; attemptId: number; timelineId: string; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ReleaseTaskAttachment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/release/releases/{releaseId}/environments/{environmentId}/attempts/{attemptId}/timelines/{timelineId}/attachments/{type}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -31365,7 +31366,7 @@ export interface YamlSourceReference {
          * @param testCaseResultId ID of the test result.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getTestResultAttachments (params: {  organization: string; project: string; runId: number; testCaseResultId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestAttachment>> {
+        public getTestResultAttachments (params: {  organization: string; project: string; runId: number; testCaseResultId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestAttachment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/Results/{testCaseResultId}/attachments'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -31492,7 +31493,7 @@ export interface YamlSourceReference {
          * @param runId ID of the test run.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getTestRunAttachments (params: {  organization: string; project: string; runId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestAttachment>> {
+        public getTestRunAttachments (params: {  organization: string; project: string; runId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestAttachment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/attachments'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -31643,7 +31644,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public authorizeProjectResources (params: {  organization: string; body: Array<DefinitionResourceReference>; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DefinitionResourceReference>> {
+        public authorizeProjectResources (params: {  organization: string; body: Array<DefinitionResourceReference>; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DefinitionResourceReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/authorizedresources'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -31704,7 +31705,7 @@ export interface YamlSourceReference {
          * @param type 
          * @param id 
          */
-        public getProjectResources (params: {  organization: string; project: string; apiVersion: string; type?: string; id?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DefinitionResourceReference>> {
+        public getProjectResources (params: {  organization: string; project: string; apiVersion: string; type?: string; id?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DefinitionResourceReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/authorizedresources'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -32169,7 +32170,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBacklogs (params: {  organization: string; project: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BacklogLevelConfiguration>> {
+        public getBacklogs (params: {  organization: string; project: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BacklogLevelConfiguration>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/backlogs'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -32681,7 +32682,7 @@ export interface YamlSourceReference {
          * @param processId The ID of the process
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBehaviors (params: {  organization: string; processId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<AdminBehavior>> {
+        public getBehaviors (params: {  organization: string; processId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<AdminBehavior>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processadmin/{processId}/behaviors'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId));
@@ -32733,7 +32734,7 @@ export interface YamlSourceReference {
          * @param processId The ID of the process
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBehaviors_1 (params: {  organization: string; processId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BehaviorModel>> {
+        public getBehaviors_1 (params: {  organization: string; processId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BehaviorModel>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processdefinitions/{processId}/behaviors'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId));
@@ -32849,7 +32850,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Expand 
          */
-        public getProcessBehaviors (params: {  organization: string; processId: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ProcessBehavior>> {
+        public getProcessBehaviors (params: {  organization: string; processId: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ProcessBehavior>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes/{processId}/behaviors'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId));
@@ -33222,7 +33223,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getColumnSuggestedValues (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardSuggestedValue>> {
+        public getColumnSuggestedValues (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardSuggestedValue>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/work/boardcolumns'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -33292,7 +33293,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBoardMappingParentItems (params: {  organization: string; project: string; childBacklogContextCategoryRefName: string; workitemIds: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ParentChildWIMap>> {
+        public getBoardMappingParentItems (params: {  organization: string; project: string; childBacklogContextCategoryRefName: string; workitemIds: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ParentChildWIMap>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/boards/boardparents'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -33380,7 +33381,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getRowSuggestedValues (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardSuggestedValue>> {
+        public getRowSuggestedValues (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardSuggestedValue>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/work/boardrows'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -33512,7 +33513,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBoards (params: {  organization: string; project: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardReference>> {
+        public getBoards (params: {  organization: string; project: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/boards'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -33810,7 +33811,7 @@ export interface YamlSourceReference {
          * @param includeDeleted Return deleted branches. Default: False
          * @param includeLinks Return links. Default: False
          */
-        public getBranchRefs (params: {  organization: string; scopePath: string; project: string; apiVersion: string; includeDeleted?: boolean; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcBranchRef>> {
+        public getBranchRefs (params: {  organization: string; scopePath: string; project: string; apiVersion: string; includeDeleted?: boolean; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcBranchRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/tfvc/branches'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -34018,7 +34019,7 @@ export interface YamlSourceReference {
          * @param $Top The maximum number of changes to return
          * @param includeSourceChange 
          */
-        public getBuildChanges (params: {  organization: string; project: string; buildId: number; apiVersion: string; continuationToken?: string; $Top?: number; includeSourceChange?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Change>> {
+        public getBuildChanges (params: {  organization: string; project: string; buildId: number; apiVersion: string; continuationToken?: string; $Top?: number; includeSourceChange?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Change>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/changes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -34162,7 +34163,7 @@ export interface YamlSourceReference {
          * @param buildId The ID of the build.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getBuildLogs (params: {  organization: string; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildLog>> {
+        public getBuildLogs (params: {  organization: string; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildLog>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/logs'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -34221,7 +34222,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Top The maximum number of work items to return.
          */
-        public getBuildWorkItemsRefs (params: {  organization: string; project: string; buildId: number; apiVersion: string; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ResourceRef>> {
+        public getBuildWorkItemsRefs (params: {  organization: string; project: string; buildId: number; apiVersion: string; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ResourceRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/workitems'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -34285,7 +34286,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Top The maximum number of work items to return, or the number of commits to consider if no commit IDs are specified.
          */
-        public getBuildWorkItemsRefsFromCommits (params: {  organization: string; body: Array<string>; project: string; buildId: number; apiVersion: string; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ResourceRef>> {
+        public getBuildWorkItemsRefsFromCommits (params: {  organization: string; body: Array<string>; project: string; buildId: number; apiVersion: string; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ResourceRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/workitems'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -34373,7 +34374,7 @@ export interface YamlSourceReference {
          * @param repositoryId If specified, filters to builds that built from this repository.
          * @param repositoryType If specified, filters to builds that built from repositories of this type.
          */
-        public getBuilds (params: {  organization: string; project: string; apiVersion: string; definitions?: string; queues?: string; buildNumber?: string; minTime?: Date; maxTime?: Date; requestedFor?: string; reasonFilter?: string; statusFilter?: string; resultFilter?: string; tagFilters?: string; properties?: string; $Top?: number; continuationToken?: string; maxBuildsPerDefinition?: number; deletedFilter?: string; queryOrder?: string; branchName?: string; buildIds?: string; repositoryId?: string; repositoryType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Build>> {
+        public getBuilds (params: {  organization: string; project: string; apiVersion: string; definitions?: string; queues?: string; buildNumber?: string; minTime?: Date; maxTime?: Date; requestedFor?: string; reasonFilter?: string; statusFilter?: string; resultFilter?: string; tagFilters?: string; properties?: string; $Top?: number; continuationToken?: string; maxBuildsPerDefinition?: number; deletedFilter?: string; queryOrder?: string; branchName?: string; buildIds?: string; repositoryId?: string; repositoryType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Build>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -34508,7 +34509,7 @@ export interface YamlSourceReference {
          * @param toBuildId The ID of the last build.
          * @param $Top The maximum number of changes to return.
          */
-        public getChangesBetweenBuilds (params: {  organization: string; project: string; apiVersion: string; fromBuildId?: number; toBuildId?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Change>> {
+        public getChangesBetweenBuilds (params: {  organization: string; project: string; apiVersion: string; fromBuildId?: number; toBuildId?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Change>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/changes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -34575,7 +34576,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Top The maximum number of work items to return.
          */
-        public getWorkItemsBetweenBuilds (params: {  organization: string; project: string; fromBuildId: number; toBuildId: number; apiVersion: string; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ResourceRef>> {
+        public getWorkItemsBetweenBuilds (params: {  organization: string; project: string; fromBuildId: number; toBuildId: number; apiVersion: string; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ResourceRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/workitems'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -34794,7 +34795,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.5&#39; to use this version of the api.
          */
-        public updateBuilds (params: {  organization: string; body: Array<Build>; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Build>> {
+        public updateBuilds (params: {  organization: string; body: Array<Build>; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Build>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -34870,7 +34871,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getCapacities (params: {  organization: string; project: string; iterationId: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TeamMemberCapacity>> {
+        public getCapacities (params: {  organization: string; project: string; iterationId: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TeamMemberCapacity>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/teamsettings/iterations/{iterationId}/capacities'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -35005,7 +35006,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public replaceCapacities (params: {  organization: string; body: Array<TeamMemberCapacity>; project: string; iterationId: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TeamMemberCapacity>> {
+        public replaceCapacities (params: {  organization: string; body: Array<TeamMemberCapacity>; project: string; iterationId: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TeamMemberCapacity>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/teamsettings/iterations/{iterationId}/capacities'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -35719,7 +35720,7 @@ export interface YamlSourceReference {
          * @param body List of changeset IDs.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBatchedChangesets (params: {  organization: string; body: TfvcChangesetsRequestData; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcChangesetRef>> {
+        public getBatchedChangesets (params: {  organization: string; body: TfvcChangesetsRequestData; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcChangesetRef>> {
             const localVarPath = this.basePath + '/{organization}/_apis/tfvc/changesetsbatch'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -35918,7 +35919,7 @@ export interface YamlSourceReference {
          * @param $Skip Number of results to skip. Default: null
          * @param $Top The maximum number of results to return. Default: null
          */
-        public getChangesetChanges (params: {  organization: string; id: number; apiVersion: string; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcChange>> {
+        public getChangesetChanges (params: {  organization: string; id: number; apiVersion: string; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcChange>> {
             const localVarPath = this.basePath + '/{organization}/_apis/tfvc/changesets/{id}/changes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'id' + '}', String(params.id));
@@ -35978,7 +35979,7 @@ export interface YamlSourceReference {
          * @param id ID of the changeset. Default: null
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getChangesetWorkItems (params: {  organization: string; id: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<AssociatedWorkItem>> {
+        public getChangesetWorkItems (params: {  organization: string; id: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<AssociatedWorkItem>> {
             const localVarPath = this.basePath + '/{organization}/_apis/tfvc/changesets/{id}/workItems'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'id' + '}', String(params.id));
@@ -36043,7 +36044,7 @@ export interface YamlSourceReference {
          * @param searchCriteriaAuthor Alias or display name of user who made the changes
          * @param searchCriteriaItemPath Path of item to search under
          */
-        public getChangesets (params: {  organization: string; project: string; apiVersion: string; maxCommentLength?: number; $Skip?: number; $Top?: number; $Orderby?: string; searchCriteriaMappings?: string; searchCriteriaIncludeLinks?: boolean; searchCriteriaFollowRenames?: boolean; searchCriteriaToId?: number; searchCriteriaFromId?: number; searchCriteriaToDate?: string; searchCriteriaFromDate?: string; searchCriteriaAuthor?: string; searchCriteriaItemPath?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcChangesetRef>> {
+        public getChangesets (params: {  organization: string; project: string; apiVersion: string; maxCommentLength?: number; $Skip?: number; $Top?: number; $Orderby?: string; searchCriteriaMappings?: string; searchCriteriaIncludeLinks?: boolean; searchCriteriaFollowRenames?: boolean; searchCriteriaToId?: number; searchCriteriaFromId?: number; searchCriteriaToDate?: string; searchCriteriaFromDate?: string; searchCriteriaAuthor?: string; searchCriteriaItemPath?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcChangesetRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/tfvc/changesets'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -36234,7 +36235,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBoardCharts (params: {  organization: string; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardChartReference>> {
+        public getBoardCharts (params: {  organization: string; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardChartReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/boards/{board}/charts'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -36812,7 +36813,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Depth Depth of children to fetch.
          */
-        public getRootNodes (params: {  organization: string; project: string; apiVersion: string; $Depth?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemClassificationNode>> {
+        public getRootNodes (params: {  organization: string; project: string; apiVersion: string; $Depth?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemClassificationNode>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/classificationnodes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -37070,7 +37071,7 @@ export interface YamlSourceReference {
          * @param flags Value of flags determine the level of code coverage details to be fetched. Flags are additive. Expected Values are 1 for Modules, 2 for Functions, 4 for BlockData.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBuildCodeCoverage (params: {  organization: string; project: string; buildId: number; flags: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildCoverage>> {
+        public getBuildCodeCoverage (params: {  organization: string; project: string; buildId: number; flags: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildCoverage>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/codecoverage'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -37140,7 +37141,7 @@ export interface YamlSourceReference {
          * @param flags Value of flags determine the level of code coverage details to be fetched. Flags are additive. Expected Values are 1 for Modules, 2 for Functions, 4 for BlockData.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getTestRunCodeCoverage (params: {  organization: string; project: string; runId: number; flags: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestRunCoverage>> {
+        public getTestRunCodeCoverage (params: {  organization: string; project: string; runId: number; flags: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestRunCoverage>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/codecoverage'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -37297,7 +37298,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBoardColumns (params: {  organization: string; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardColumn>> {
+        public getBoardColumns (params: {  organization: string; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardColumn>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/boards/{board}/columns'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -37362,7 +37363,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public updateBoardColumns (params: {  organization: string; body: Array<BoardColumn>; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardColumn>> {
+        public updateBoardColumns (params: {  organization: string; body: Array<BoardColumn>; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardColumn>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/boards/{board}/columns'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -37958,7 +37959,7 @@ export interface YamlSourceReference {
          * @param commentId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getCommentVersions (params: {  organization: string; project: string; workItemId: number; commentId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemCommentVersionResponse>> {
+        public getCommentVersions (params: {  organization: string; project: string; workItemId: number; commentId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemCommentVersionResponse>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workItems/{workItemId}/comments/{commentId}/versions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -38183,7 +38184,7 @@ export interface YamlSourceReference {
          * @param $Top Maximum number of commits to return.
          * @param includeStatuses True to include additional commit status information.
          */
-        public getCommitsBatch (params: {  organization: string; body: GitQueryCommitsCriteria; repositoryId: string; project: string; apiVersion: string; $Skip?: number; $Top?: number; includeStatuses?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitCommitRef>> {
+        public getCommitsBatch (params: {  organization: string; body: GitQueryCommitsCriteria; repositoryId: string; project: string; apiVersion: string; $Skip?: number; $Top?: number; includeStatuses?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitCommitRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/commitsbatch'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -38264,7 +38265,7 @@ export interface YamlSourceReference {
          * @param skip The number of commits to skip.
          * @param includeLinks Set to false to avoid including REST Url links for resources. Defaults to true.
          */
-        public getPushCommits (params: {  organization: string; repositoryId: string; pushId: number; project: string; apiVersion: string; top?: number; skip?: number; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitCommitRef>> {
+        public getPushCommits (params: {  organization: string; repositoryId: string; pushId: number; project: string; apiVersion: string; top?: number; skip?: number; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitCommitRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/commits'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -38661,7 +38662,7 @@ export interface YamlSourceReference {
          * @param scope [Provided for legacy reasons] The scope on which a subset of policies is defined.
          * @param policyType Filter returned policies to only this type
          */
-        public getPolicyConfigurations (params: {  organization: string; project: string; apiVersion: string; scope?: string; policyType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PolicyConfiguration>> {
+        public getPolicyConfigurations (params: {  organization: string; project: string; apiVersion: string; scope?: string; policyType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PolicyConfiguration>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/policy/configurations'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -38780,7 +38781,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param continuationToken If the list of configurations returned is not complete, a continuation token to query next batch of configurations is included in the response header as &quot;x-ms-continuationtoken&quot;. Omit this parameter to get the first batch of test configurations.
          */
-        public getTestConfigurations (params: {  organization: string; project: string; apiVersion: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestConfiguration>> {
+        public getTestConfigurations (params: {  organization: string; project: string; apiVersion: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestConfiguration>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/configurations'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -39107,7 +39108,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param publisherId 
          */
-        public listConsumerActions (params: {  organization: string; consumerId: string; apiVersion: string; publisherId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ConsumerAction>> {
+        public listConsumerActions (params: {  organization: string; consumerId: string; apiVersion: string; publisherId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ConsumerAction>> {
             const localVarPath = this.basePath + '/{organization}/_apis/hooks/consumers/{consumerId}/actions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'consumerId' + '}', String(params.consumerId));
@@ -39163,7 +39164,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param publisherId 
          */
-        public listConsumers (params: {  organization: string; apiVersion: string; publisherId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Consumer>> {
+        public listConsumers (params: {  organization: string; apiVersion: string; publisherId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Consumer>> {
             const localVarPath = this.basePath + '/{organization}/_apis/hooks/consumers'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -39281,7 +39282,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param name 
          */
-        public getBuildControllers (params: {  organization: string; apiVersion: string; name?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildController>> {
+        public getBuildControllers (params: {  organization: string; apiVersion: string; name?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildController>> {
             const localVarPath = this.basePath + '/{organization}/_apis/build/controllers'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -39970,7 +39971,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param includeSummary 
          */
-        public getCounters (params: {  organization: string; testRunId: string; groupNames: string; apiVersion: string; includeSummary?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestRunCounterInstance>> {
+        public getCounters (params: {  organization: string; testRunId: string; groupNames: string; apiVersion: string; includeSummary?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestRunCounterInstance>> {
             const localVarPath = this.basePath + '/{organization}/_apis/clt/testRuns/{testRunId}/counterinstances'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'testRunId' + '}', String(params.testRunId));
@@ -40125,7 +40126,7 @@ export interface YamlSourceReference {
          * @param applicationId Filter by APM application identifier.
          * @param plugintype Currently ApplicationInsights is the only available plugin type.
          */
-        public getApplicationCounters (params: {  organization: string; apiVersion: string; applicationId?: string; plugintype?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ApplicationCounters>> {
+        public getApplicationCounters (params: {  organization: string; apiVersion: string; applicationId?: string; plugintype?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ApplicationCounters>> {
             const localVarPath = this.basePath + '/{organization}/_apis/clt/apm/counters'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -40999,7 +41000,7 @@ export interface YamlSourceReference {
          * @param definitionId The ID of the definition.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          */
-        public getDefinitionRevisions (params: {  organization: string; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildDefinitionRevision>> {
+        public getDefinitionRevisions (params: {  organization: string; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildDefinitionRevision>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{definitionId}/revisions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -41072,7 +41073,7 @@ export interface YamlSourceReference {
          * @param processType If specified, filters to definitions with the given process type.
          * @param yamlFilename If specified, filters to YAML definitions that match the given filename.
          */
-        public getDefinitions (params: {  organization: string; project: string; apiVersion: string; name?: string; repositoryId?: string; repositoryType?: string; queryOrder?: string; $Top?: number; continuationToken?: string; minMetricsTime?: Date; definitionIds?: string; path?: string; builtAfter?: Date; notBuiltAfter?: Date; includeAllProperties?: boolean; includeLatestBuilds?: boolean; taskIdFilter?: string; processType?: number; yamlFilename?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildDefinitionReference>> {
+        public getDefinitions (params: {  organization: string; project: string; apiVersion: string; name?: string; repositoryId?: string; repositoryType?: string; queryOrder?: string; $Top?: number; continuationToken?: string; minMetricsTime?: Date; definitionIds?: string; path?: string; builtAfter?: Date; notBuiltAfter?: Date; includeAllProperties?: boolean; includeLatestBuilds?: boolean; taskIdFilter?: string; processType?: number; yamlFilename?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildDefinitionReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -41252,7 +41253,7 @@ export interface YamlSourceReference {
          * @param definitionId Id of the definition.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getReleaseDefinitionHistory (params: {  organization: string; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ReleaseDefinitionRevision>> {
+        public getReleaseDefinitionHistory (params: {  organization: string; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ReleaseDefinitionRevision>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/Release/definitions/{definitionId}/revisions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -41323,7 +41324,7 @@ export interface YamlSourceReference {
          * @param isDeleted &#39;true&#39; to get release definitions that has been deleted. Default is &#39;false&#39;
          * @param searchTextContainsFolderName &#39;true&#39; to get the release definitions under the folder with name as specified in searchText. Default is &#39;false&#39;.
          */
-        public getReleaseDefinitions (params: {  organization: string; project: string; apiVersion: string; searchText?: string; $Expand?: string; artifactType?: string; artifactSourceId?: string; $Top?: number; continuationToken?: string; queryOrder?: string; path?: string; isExactNameMatch?: boolean; tagFilter?: string; propertyFilters?: string; definitionIdFilter?: string; isDeleted?: boolean; searchTextContainsFolderName?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ReleaseDefinition>> {
+        public getReleaseDefinitions (params: {  organization: string; project: string; apiVersion: string; searchText?: string; $Expand?: string; artifactType?: string; artifactSourceId?: string; $Top?: number; continuationToken?: string; queryOrder?: string; path?: string; isExactNameMatch?: boolean; tagFilter?: string; propertyFilters?: string; definitionIdFilter?: string; isDeleted?: boolean; searchTextContainsFolderName?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ReleaseDefinition>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/release/definitions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -41929,7 +41930,7 @@ export interface YamlSourceReference {
          * @param $Top Maximum number of deployment groups to return. Default is **1000**.
          * @param ids Comma separated list of IDs of the deployment groups.
          */
-        public getDeploymentGroups (params: {  organization: string; project: string; apiVersion: string; name?: string; actionFilter?: string; $Expand?: string; continuationToken?: string; $Top?: number; ids?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DeploymentGroup>> {
+        public getDeploymentGroups (params: {  organization: string; project: string; apiVersion: string; name?: string; actionFilter?: string; $Expand?: string; continuationToken?: string; $Top?: number; ids?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DeploymentGroup>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/distributedtask/deploymentgroups'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -42101,7 +42102,7 @@ export interface YamlSourceReference {
          * @param maxStartedTime 
          * @param sourceBranch 
          */
-        public getDeployments (params: {  organization: string; project: string; apiVersion: string; definitionId?: number; definitionEnvironmentId?: number; createdBy?: string; minModifiedTime?: Date; maxModifiedTime?: Date; deploymentStatus?: string; operationStatus?: string; latestAttemptsOnly?: boolean; queryOrder?: string; $Top?: number; continuationToken?: number; createdFor?: string; minStartedTime?: Date; maxStartedTime?: Date; sourceBranch?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Deployment>> {
+        public getDeployments (params: {  organization: string; project: string; apiVersion: string; definitionId?: number; definitionEnvironmentId?: number; createdBy?: string; minModifiedTime?: Date; maxModifiedTime?: Date; deploymentStatus?: string; operationStatus?: string; latestAttemptsOnly?: boolean; queryOrder?: string; $Top?: number; continuationToken?: number; createdFor?: string; minStartedTime?: Date; maxStartedTime?: Date; sourceBranch?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Deployment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/release/deployments'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -42298,7 +42299,7 @@ export interface YamlSourceReference {
          * @param startTime 
          * @param endTime 
          */
-        public listLogs (params: {  source: string; organization: string; entryId: string; apiVersion: string; startTime?: Date; endTime?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<INotificationDiagnosticLog>> {
+        public listLogs (params: {  source: string; organization: string; entryId: string; apiVersion: string; startTime?: Date; endTime?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<INotificationDiagnosticLog>> {
             const localVarPath = this.basePath + '/{organization}/_apis/notification/diagnosticlogs/{source}/entries/{entryId}'
                 .replace('{' + 'source' + '}', String(params.source))
                 .replace('{' + 'organization' + '}', String(params.organization))
@@ -42736,7 +42737,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public queryServiceEndpoint (params: {  organization: string; body: DataSourceBinding; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public queryServiceEndpoint (params: {  organization: string; body: DataSourceBinding; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/serviceendpoint/endpointproxy'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -42997,7 +42998,7 @@ export interface YamlSourceReference {
          * @param includeFailed Failed flag for service endpoints.
          * @param includeDetails Flag to include more details for service endpoints. This is for internal use only and the flag will be treated as false for all other requests
          */
-        public getServiceEndpointsByNames (params: {  organization: string; project: string; endpointNames: string; apiVersion: string; type?: string; authSchemes?: string; owner?: string; includeFailed?: boolean; includeDetails?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ServiceEndpoint>> {
+        public getServiceEndpointsByNames (params: {  organization: string; project: string; endpointNames: string; apiVersion: string; type?: string; authSchemes?: string; owner?: string; includeFailed?: boolean; includeDetails?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ServiceEndpoint>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/serviceendpoint/endpoints'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -43149,7 +43150,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public updateServiceEndpoints (params: {  organization: string; body: Array<ServiceEndpoint>; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ServiceEndpoint>> {
+        public updateServiceEndpoints (params: {  organization: string; body: Array<ServiceEndpoint>; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ServiceEndpoint>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/serviceendpoint/endpoints'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -43367,7 +43368,7 @@ export interface YamlSourceReference {
          * @param $Top The number of policy evaluation records to retrieve.
          * @param $Skip The number of policy evaluation records to ignore. For example, to retrieve results 101-150, set top to 50 and skip to 100.
          */
-        public getPolicyEvaluations (params: {  organization: string; project: string; artifactId: string; apiVersion: string; includeNotApplicable?: boolean; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PolicyEvaluationRecord>> {
+        public getPolicyEvaluations (params: {  organization: string; project: string; artifactId: string; apiVersion: string; includeNotApplicable?: boolean; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PolicyEvaluationRecord>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/policy/evaluations'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -43564,7 +43565,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param publisherId Limit to event types for this publisher
          */
-        public listEventTypes (params: {  organization: string; apiVersion: string; publisherId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<NotificationEventType>> {
+        public listEventTypes (params: {  organization: string; apiVersion: string; publisherId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<NotificationEventType>> {
             const localVarPath = this.basePath + '/{organization}/_apis/notification/eventtypes'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -43701,7 +43702,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param top Number of service endpoint execution records to get.
          */
-        public getServiceEndpointExecutionRecords (params: {  organization: string; project: string; endpointId: string; apiVersion: string; top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ServiceEndpointExecutionRecord>> {
+        public getServiceEndpointExecutionRecords (params: {  organization: string; project: string; endpointId: string; apiVersion: string; top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ServiceEndpointExecutionRecord>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/serviceendpoint/{endpointId}/executionhistory'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -44061,7 +44062,7 @@ export interface YamlSourceReference {
          * @param excludeInheritedPermissions True to only return explicitly set permissions on the feed.  Default is false.
          * @param identityDescriptor Filter permissions to the provided identity.
          */
-        public getFeedPermissions (params: {  organization: string; feedId: string; apiVersion: string; includeIds?: boolean; excludeInheritedPermissions?: boolean; identityDescriptor?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<FeedPermission>> {
+        public getFeedPermissions (params: {  organization: string; feedId: string; apiVersion: string; includeIds?: boolean; excludeInheritedPermissions?: boolean; identityDescriptor?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<FeedPermission>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/permissions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId));
@@ -44183,7 +44184,7 @@ export interface YamlSourceReference {
          * @param feedId Name or Id of the feed.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getFeedViews (params: {  organization: string; feedId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<FeedView>> {
+        public getFeedViews (params: {  organization: string; feedId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<FeedView>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/views'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId));
@@ -44236,7 +44237,7 @@ export interface YamlSourceReference {
          * @param feedRole Filter by this role, either Administrator(4), Contributor(3), or Reader(2) level permissions.
          * @param includeDeletedUpstreams Include upstreams that have been deleted in the response.
          */
-        public getFeeds (params: {  organization: string; apiVersion: string; feedRole?: string; includeDeletedUpstreams?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Feed>> {
+        public getFeeds (params: {  organization: string; apiVersion: string; feedRole?: string; includeDeletedUpstreams?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Feed>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/feeds'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -44292,7 +44293,7 @@ export interface YamlSourceReference {
          * @param feedId Name or Id of the feed.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public setFeedPermissions (params: {  organization: string; body: Array<FeedPermission>; feedId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<FeedPermission>> {
+        public setFeedPermissions (params: {  organization: string; body: Array<FeedPermission>; feedId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<FeedPermission>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/permissions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId));
@@ -44737,7 +44738,7 @@ export interface YamlSourceReference {
          * @param witRefName The reference name of the work item type.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getAllWorkItemTypeFields (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ProcessWorkItemTypeField>> {
+        public getAllWorkItemTypeFields (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ProcessWorkItemTypeField>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes/{processId}/workItemTypes/{witRefName}/fields'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId))
@@ -44853,7 +44854,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Expand Use ExtensionFields to include extension fields, otherwise exclude them. Unless the feature flag for this parameter is enabled, extension fields are always included.
          */
-        public getFields (params: {  organization: string; project: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemField>> {
+        public getFields (params: {  organization: string; project: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemField>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/fields'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -45310,7 +45311,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param queryOrder The order in which folders should be returned.
          */
-        public getFolders (params: {  organization: string; project: string; path: string; apiVersion: string; queryOrder?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Folder>> {
+        public getFolders (params: {  organization: string; project: string; path: string; apiVersion: string; queryOrder?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Folder>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/folders/{path}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -45595,7 +45596,7 @@ export interface YamlSourceReference {
          * @param includeAbandoned True to include abandoned requests.
          * @param includeLinks True to include links.
          */
-        public getForkSyncRequests (params: {  organization: string; repositoryNameOrId: string; project: string; apiVersion: string; includeAbandoned?: boolean; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitForkSyncRequest>> {
+        public getForkSyncRequests (params: {  organization: string; repositoryNameOrId: string; project: string; apiVersion: string; includeAbandoned?: boolean; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitForkSyncRequest>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryNameOrId}/forkSyncRequests'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryNameOrId' + '}', String(params.repositoryNameOrId))
@@ -45663,7 +45664,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param includeLinks True to include links.
          */
-        public getForks (params: {  organization: string; repositoryNameOrId: string; collectionId: string; project: string; apiVersion: string; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitRepositoryRef>> {
+        public getForks (params: {  organization: string; repositoryNameOrId: string; collectionId: string; project: string; apiVersion: string; includeLinks?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitRepositoryRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryNameOrId}/forks/{collectionId}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryNameOrId' + '}', String(params.repositoryNameOrId))
@@ -45997,7 +45998,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getGroupEntitlements (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GroupEntitlement>> {
+        public getGroupEntitlements (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GroupEntitlement>> {
             const localVarPath = this.basePath + '/{organization}/_apis/groupentitlements'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -46534,7 +46535,7 @@ export interface YamlSourceReference {
          * @param subjectTypes A comma separated list of user subject subtypes to reduce the retrieved results, e.g. Microsoft.IdentityModel.Claims.ClaimsIdentity
          * @param continuationToken An opaque data blob that allows the next page of data to resume immediately after where the previous page ended. The only reliable way to know if there is more data left is the presence of a continuation token.
          */
-        public listGroups (params: {  organization: string; apiVersion: string; scopeDescriptor?: string; subjectTypes?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GraphGroup>> {
+        public listGroups (params: {  organization: string; apiVersion: string; scopeDescriptor?: string; subjectTypes?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GraphGroup>> {
             const localVarPath = this.basePath + '/{organization}/_apis/graph/groups'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -47222,7 +47223,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param includeAbandoned True to include abandoned import requests in the results.
          */
-        public queryImportRequests (params: {  organization: string; project: string; repositoryId: string; apiVersion: string; includeAbandoned?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitImportRequest>> {
+        public queryImportRequests (params: {  organization: string; project: string; repositoryId: string; apiVersion: string; includeAbandoned?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitImportRequest>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/importRequests'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -47436,7 +47437,7 @@ export interface YamlSourceReference {
          * @param assetTypes 
          * @param includeInstallationIssues 
          */
-        public getInstalledExtensions (params: {  organization: string; apiVersion: string; includeDisabledExtensions?: boolean; includeErrors?: boolean; assetTypes?: string; includeInstallationIssues?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<InstalledExtension>> {
+        public getInstalledExtensions (params: {  organization: string; apiVersion: string; includeDisabledExtensions?: boolean; includeErrors?: boolean; assetTypes?: string; includeInstallationIssues?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<InstalledExtension>> {
             const localVarPath = this.basePath + '/{organization}/_apis/extensionmanagement/installedextensions'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -47711,7 +47712,7 @@ export interface YamlSourceReference {
          * @param versionDescriptorVersion Version string identifier (name of tag/branch, SHA1 of commit)
          * @param versionDescriptorVersionType Version type (branch, tag, or commit). Determines how Id is interpreted
          */
-        public getItems (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; scopePath?: string; recursionLevel?: string; includeContentMetadata?: boolean; latestProcessedChange?: boolean; download?: boolean; includeLinks?: boolean; $Format?: string; versionDescriptorVersionOptions?: string; versionDescriptorVersion?: string; versionDescriptorVersionType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitItem>> {
+        public getItems (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; scopePath?: string; recursionLevel?: string; includeContentMetadata?: boolean; latestProcessedChange?: boolean; download?: boolean; includeLinks?: boolean; $Format?: string; versionDescriptorVersionOptions?: string; versionDescriptorVersion?: string; versionDescriptorVersionType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/items'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -47810,7 +47811,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getItemsBatch (params: {  organization: string; body: GitItemRequestData; repositoryId: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Array<ERRORUNKNOWN>>> {
+        public getItemsBatch (params: {  organization: string; body: GitItemRequestData; repositoryId: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Array<ERRORUNKNOWN>>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/itemsbatch'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -47875,7 +47876,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getItemsBatch_1 (params: {  organization: string; body: TfvcItemRequestData; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Array<ERRORUNKNOWN>>> {
+        public getItemsBatch_1 (params: {  organization: string; body: TfvcItemRequestData; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Array<ERRORUNKNOWN>>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/tfvc/itembatch'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -47940,7 +47941,7 @@ export interface YamlSourceReference {
          * @param versionDescriptorVersionType 
          * @param versionDescriptorVersionOption 
          */
-        public getItems_2 (params: {  organization: string; project: string; apiVersion: string; scopePath?: string; recursionLevel?: string; includeLinks?: boolean; versionDescriptorVersion?: string; versionDescriptorVersionType?: string; versionDescriptorVersionOption?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcItem>> {
+        public getItems_2 (params: {  organization: string; project: string; apiVersion: string; scopePath?: string; recursionLevel?: string; includeLinks?: boolean; versionDescriptorVersion?: string; versionDescriptorVersionType?: string; versionDescriptorVersionOption?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/tfvc/items'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -48225,7 +48226,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param $Timeframe A filter for which iterations are returned based on relative time. Only Current is supported currently.
          */
-        public getTeamIterations (params: {  organization: string; project: string; team: string; apiVersion: string; $Timeframe?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TeamSettingsIteration>> {
+        public getTeamIterations (params: {  organization: string; project: string; team: string; apiVersion: string; $Timeframe?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TeamSettingsIteration>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/teamsettings/iterations'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -48364,7 +48365,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          * @param includeActionResults Include result details for each action performed in the test iteration. ActionResults refer to outcome (pass/fail) of test steps that are executed as part of a running a manual test. Including the ActionResults flag gets the outcome of test steps in the actionResults section and test parameters in the parameters section for each test iteration.
          */
-        public getTestIterations (params: {  organization: string; project: string; runId: number; testCaseResultId: number; apiVersion: string; includeActionResults?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestIterationDetailsModel>> {
+        public getTestIterations (params: {  organization: string; project: string; runId: number; testCaseResultId: number; apiVersion: string; includeActionResults?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestIterationDetailsModel>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/Results/{testCaseResultId}/iterations'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -48601,7 +48602,7 @@ export interface YamlSourceReference {
          * @param $Top Max number of items to return
          * @param $Skip Number of items to skip
          */
-        public getLabelItems (params: {  organization: string; labelId: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcItem>> {
+        public getLabelItems (params: {  organization: string; labelId: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcItem>> {
             const localVarPath = this.basePath + '/{organization}/_apis/tfvc/labels/{labelId}/items'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'labelId' + '}', String(params.labelId));
@@ -48669,7 +48670,7 @@ export interface YamlSourceReference {
          * @param $Top Max number of labels to return
          * @param $Skip Number of labels to skip
          */
-        public getLabels (params: {  organization: string; project: string; apiVersion: string; requestDataIncludeLinks?: boolean; requestDataMaxItemCount?: number; requestDataItemLabelFilter?: string; requestDataOwner?: string; requestDataName?: string; requestDataLabelScope?: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcLabelRef>> {
+        public getLabels (params: {  organization: string; project: string; apiVersion: string; requestDataIncludeLinks?: boolean; requestDataMaxItemCount?: number; requestDataItemLabelFilter?: string; requestDataOwner?: string; requestDataName?: string; requestDataLabelScope?: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcLabelRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/tfvc/labels'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -49292,7 +49293,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getListsMetadata (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PickListMetadataModel>> {
+        public getListsMetadata (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PickListMetadataModel>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processdefinitions/lists'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -49338,7 +49339,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getListsMetadata_4 (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PickListMetadata>> {
+        public getListsMetadata_4 (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PickListMetadata>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes/lists'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -49585,7 +49586,7 @@ export interface YamlSourceReference {
          * @param releaseId Id of the release.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getManualInterventions (params: {  organization: string; project: string; releaseId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ManualIntervention>> {
+        public getManualInterventions (params: {  organization: string; project: string; releaseId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ManualIntervention>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/Release/releases/{releaseId}/manualinterventions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -50543,7 +50544,7 @@ export interface YamlSourceReference {
          * @param direction Defaults to Up.
          * @param depth The maximum number of edges to traverse up or down the membership tree. Currently the only supported value is &#39;1&#39;.
          */
-        public listMemberships (params: {  organization: string; subjectDescriptor: string; apiVersion: string; direction?: string; depth?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GraphMembership>> {
+        public listMemberships (params: {  organization: string; subjectDescriptor: string; apiVersion: string; direction?: string; depth?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GraphMembership>> {
             const localVarPath = this.basePath + '/{organization}/_apis/graph/Memberships/{subjectDescriptor}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'subjectDescriptor' + '}', String(params.subjectDescriptor));
@@ -50681,7 +50682,7 @@ export interface YamlSourceReference {
          * @param otherCollectionId The collection ID where otherCommitId lives.
          * @param otherRepositoryId The repository ID where otherCommitId lives.
          */
-        public getMergeBases (params: {  organization: string; repositoryNameOrId: string; commitId: string; otherCommitId: string; project: string; apiVersion: string; otherCollectionId?: string; otherRepositoryId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitCommitRef>> {
+        public getMergeBases (params: {  organization: string; repositoryNameOrId: string; commitId: string; otherCommitId: string; project: string; apiVersion: string; otherCollectionId?: string; otherRepositoryId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitCommitRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryNameOrId}/commits/{commitId}/mergebases'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryNameOrId' + '}', String(params.repositoryNameOrId))
@@ -50929,7 +50930,7 @@ export interface YamlSourceReference {
          * @param testRunId Id of the test run
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getTestRunMessages (params: {  organization: string; testRunId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestRunMessage>> {
+        public getTestRunMessages (params: {  organization: string; testRunId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestRunMessage>> {
             const localVarPath = this.basePath + '/{organization}/_apis/clt/testRuns/{testRunId}/messages'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'testRunId' + '}', String(params.testRunId));
@@ -50998,7 +50999,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param minMetricsTime The date from which to calculate metrics.
          */
-        public getDefinitionMetrics (params: {  organization: string; project: string; definitionId: number; apiVersion: string; minMetricsTime?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildMetric>> {
+        public getDefinitionMetrics (params: {  organization: string; project: string; definitionId: number; apiVersion: string; minMetricsTime?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildMetric>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{definitionId}/metrics'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -51061,7 +51062,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param minMetricsTime The date from which to calculate metrics.
          */
-        public getProjectMetrics (params: {  organization: string; project: string; metricAggregationType: string; apiVersion: string; minMetricsTime?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildMetric>> {
+        public getProjectMetrics (params: {  organization: string; project: string; metricAggregationType: string; apiVersion: string; minMetricsTime?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildMetric>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/metrics/{metricAggregationType}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -51257,7 +51258,7 @@ export interface YamlSourceReference {
          * @param status Get only notifications with this status.
          * @param result Get only notifications with this result type.
          */
-        public getNotifications (params: {  organization: string; subscriptionId: string; apiVersion: string; maxResults?: number; status?: string; result?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Notification>> {
+        public getNotifications (params: {  organization: string; subscriptionId: string; apiVersion: string; maxResults?: number; status?: string; result?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Notification>> {
             const localVarPath = this.basePath + '/{organization}/_apis/hooks/subscriptions/{subscriptionId}/notifications'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'subscriptionId' + '}', String(params.subscriptionId));
@@ -53190,7 +53191,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getBuildOptionDefinitions (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildOptionDefinition>> {
+        public getBuildOptionDefinitions (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildOptionDefinition>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/options'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -54228,7 +54229,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          * @param paramName Name of the parameter.
          */
-        public getResultParameters (params: {  organization: string; project: string; runId: number; testCaseResultId: number; iterationId: number; apiVersion: string; paramName?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestResultParameterModel>> {
+        public getResultParameters (params: {  organization: string; project: string; runId: number; testCaseResultId: number; iterationId: number; apiVersion: string; paramName?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestResultParameterModel>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/Results/{testCaseResultId}/Iterations/{iterationId}/parameterresults'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -54318,7 +54319,7 @@ export interface YamlSourceReference {
          * @param alwaysAllowAdministrators If true and if the caller is an administrator, always return true.
          * @param delimiter Optional security token separator. Defaults to &quot;,&quot;.
          */
-        public hasPermissions (params: {  securityNamespaceId: string; organization: string; permissions: number; apiVersion: string; tokens?: string; alwaysAllowAdministrators?: boolean; delimiter?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<boolean>> {
+        public hasPermissions (params: {  securityNamespaceId: string; organization: string; permissions: number; apiVersion: string; tokens?: string; alwaysAllowAdministrators?: boolean; delimiter?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<boolean>> {
             const localVarPath = this.basePath + '/{organization}/_apis/permissions/{securityNamespaceId}/{permissions}'
                 .replace('{' + 'securityNamespaceId' + '}', String(params.securityNamespaceId))
                 .replace('{' + 'organization' + '}', String(params.organization))
@@ -54786,7 +54787,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPlans (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Plan>> {
+        public getPlans (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Plan>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/work/plans'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -54970,7 +54971,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPlugins (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ApplicationType>> {
+        public getPlugins (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ApplicationType>> {
             const localVarPath = this.basePath + '/{organization}/_apis/clt/apm/plugins'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -55116,7 +55117,7 @@ export interface YamlSourceReference {
          * @param $Skip Number of test points to skip..
          * @param $Top Number of test points to return.
          */
-        public getPoints (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; witFields?: string; configurationId?: string; testCaseId?: string; testPointIds?: string; includePointDetails?: boolean; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestPoint>> {
+        public getPoints (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; witFields?: string; configurationId?: string; testCaseId?: string; testPointIds?: string; includePointDetails?: boolean; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestPoint>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Plans/{planId}/Suites/{suiteId}/points'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -55280,7 +55281,7 @@ export interface YamlSourceReference {
          * @param pointIds ID of the test point to get. Use a comma-separated list of IDs to update multiple test points.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public updateTestPoints (params: {  organization: string; body: PointUpdateModel; project: string; planId: number; suiteId: number; pointIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestPoint>> {
+        public updateTestPoints (params: {  organization: string; body: PointUpdateModel; project: string; planId: number; suiteId: number; pointIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestPoint>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Plans/{planId}/Suites/{suiteId}/points/{pointIds}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -55374,7 +55375,7 @@ export interface YamlSourceReference {
          * @param $Top Maximum number of policies to return.
          * @param continuationToken Pass a policy configuration ID to fetch the next page of results, up to top number of results, for this endpoint.
          */
-        public getPolicyConfigurations (params: {  organization: string; project: string; apiVersion: string; repositoryId?: string; refName?: string; policyType?: string; $Top?: number; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PolicyConfiguration>> {
+        public getPolicyConfigurations (params: {  organization: string; project: string; apiVersion: string; repositoryId?: string; refName?: string; policyType?: string; $Top?: number; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PolicyConfiguration>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/policy/configurations'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -55859,7 +55860,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Expand 
          */
-        public getListOfProcesses (params: {  organization: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ProcessInfo>> {
+        public getListOfProcesses (params: {  organization: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ProcessInfo>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -56018,7 +56019,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getProcesses (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Process>> {
+        public getProcesses (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Process>> {
             const localVarPath = this.basePath + '/{organization}/_apis/process/processes'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -56281,7 +56282,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param keys A comma-delimited string of team project property names. Wildcard characters (&quot;?&quot; and &quot;*&quot;) are supported. If no key is specified, all properties will be returned.
          */
-        public getProjectProperties (params: {  organization: string; projectId: string; apiVersion: string; keys?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ProjectProperty>> {
+        public getProjectProperties (params: {  organization: string; projectId: string; apiVersion: string; keys?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ProjectProperty>> {
             const localVarPath = this.basePath + '/{organization}/_apis/projects/{projectId}/properties'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'projectId' + '}', String(params.projectId));
@@ -56341,7 +56342,7 @@ export interface YamlSourceReference {
          * @param continuationToken 
          * @param getDefaultTeamImageUrl 
          */
-        public getProjects (params: {  organization: string; apiVersion: string; stateFilter?: string; $Top?: number; $Skip?: number; continuationToken?: string; getDefaultTeamImageUrl?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TeamProjectReference>> {
+        public getProjects (params: {  organization: string; apiVersion: string; stateFilter?: string; $Top?: number; $Skip?: number; continuationToken?: string; getDefaultTeamImageUrl?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TeamProjectReference>> {
             const localVarPath = this.basePath + '/{organization}/_apis/projects'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -57174,7 +57175,7 @@ export interface YamlSourceReference {
          * @param publisherId ID for a publisher.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public listEventTypes (params: {  organization: string; publisherId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<EventTypeDescriptor>> {
+        public listEventTypes (params: {  organization: string; publisherId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<EventTypeDescriptor>> {
             const localVarPath = this.basePath + '/{organization}/_apis/hooks/publishers/{publisherId}/eventtypes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'publisherId' + '}', String(params.publisherId));
@@ -57225,7 +57226,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public listPublishers (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Publisher>> {
+        public listPublishers (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Publisher>> {
             const localVarPath = this.basePath + '/{organization}/_apis/hooks/publishers'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -57621,7 +57622,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getAttachments (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Attachment>> {
+        public getAttachments (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Attachment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/attachments'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -57854,7 +57855,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getLikes (params: {  organization: string; repositoryId: string; pullRequestId: number; threadId: number; commentId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<IdentityRef>> {
+        public getLikes (params: {  organization: string; repositoryId: string; pullRequestId: number; threadId: number; commentId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<IdentityRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/threads/{threadId}/comments/{commentId}/likes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -57943,7 +57944,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPullRequestCommits (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitCommitRef>> {
+        public getPullRequestCommits (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitCommitRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/commits'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -58010,7 +58011,7 @@ export interface YamlSourceReference {
          * @param top Maximum number of commits to return. The maximum number of commits that can be returned per batch is 500.
          * @param skip Number of commits to skip.
          */
-        public getPullRequestIterationCommits (params: {  organization: string; repositoryId: string; pullRequestId: number; iterationId: number; project: string; apiVersion: string; top?: number; skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitCommitRef>> {
+        public getPullRequestIterationCommits (params: {  organization: string; repositoryId: string; pullRequestId: number; iterationId: number; project: string; apiVersion: string; top?: number; skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitCommitRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/iterations/{iterationId}/commits'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -58433,7 +58434,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPullRequestIterationStatuses (params: {  organization: string; repositoryId: string; pullRequestId: number; iterationId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitPullRequestStatus>> {
+        public getPullRequestIterationStatuses (params: {  organization: string; repositoryId: string; pullRequestId: number; iterationId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitPullRequestStatus>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/iterations/{iterationId}/statuses'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -58666,7 +58667,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param includeCommits If true, include the commits associated with each iteration in the response.
          */
-        public getPullRequestIterations (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; includeCommits?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitPullRequestIteration>> {
+        public getPullRequestIterations (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; includeCommits?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitPullRequestIteration>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/iterations'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -58977,7 +58978,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param projectId Project ID or project name.
          */
-        public getPullRequestLabels (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; projectId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WebApiTagDefinition>> {
+        public getPullRequestLabels (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; projectId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WebApiTagDefinition>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/labels'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -59371,7 +59372,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public createPullRequestReviewers (params: {  organization: string; body: Array<IdentityRef>; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<IdentityRefWithVote>> {
+        public createPullRequestReviewers (params: {  organization: string; body: Array<IdentityRef>; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<IdentityRefWithVote>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -59582,7 +59583,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPullRequestReviewers (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<IdentityRefWithVote>> {
+        public getPullRequestReviewers (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<IdentityRefWithVote>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -60032,7 +60033,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPullRequestStatuses (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitPullRequestStatus>> {
+        public getPullRequestStatuses (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitPullRequestStatus>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/statuses'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -60414,7 +60415,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getComments (params: {  organization: string; repositoryId: string; pullRequestId: number; threadId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Comment>> {
+        public getComments (params: {  organization: string; repositoryId: string; pullRequestId: number; threadId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Comment>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/threads/{threadId}/comments'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -60736,7 +60737,7 @@ export interface YamlSourceReference {
          * @param $Iteration If specified, thread positions will be tracked using this iteration as the right side of the diff.
          * @param $BaseIteration If specified, thread positions will be tracked using this iteration as the left side of the diff.
          */
-        public getThreads (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; $Iteration?: number; $BaseIteration?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitPullRequestCommentThread>> {
+        public getThreads (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; $Iteration?: number; $BaseIteration?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitPullRequestCommentThread>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/threads'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -60901,7 +60902,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPullRequestWorkItemRefs (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ResourceRef>> {
+        public getPullRequestWorkItemRefs (params: {  organization: string; repositoryId: string; pullRequestId: number; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ResourceRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/workitems'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -61208,7 +61209,7 @@ export interface YamlSourceReference {
          * @param $Skip The number of pull requests to ignore. For example, to retrieve results 101-150, set top to 50 and skip to 100.
          * @param $Top The number of pull requests to retrieve.
          */
-        public getPullRequests (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; searchCriteriaIncludeLinks?: boolean; searchCriteriaSourceRefName?: string; searchCriteriaSourceRepositoryId?: string; searchCriteriaTargetRefName?: string; searchCriteriaStatus?: string; searchCriteriaReviewerId?: string; searchCriteriaCreatorId?: string; searchCriteriaRepositoryId?: string; maxCommentLength?: number; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitPullRequest>> {
+        public getPullRequests (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; searchCriteriaIncludeLinks?: boolean; searchCriteriaSourceRefName?: string; searchCriteriaSourceRepositoryId?: string; searchCriteriaTargetRefName?: string; searchCriteriaStatus?: string; searchCriteriaReviewerId?: string; searchCriteriaCreatorId?: string; searchCriteriaRepositoryId?: string; maxCommentLength?: number; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitPullRequest>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullrequests'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -61320,7 +61321,7 @@ export interface YamlSourceReference {
          * @param $Skip The number of pull requests to ignore. For example, to retrieve results 101-150, set top to 50 and skip to 100.
          * @param $Top The number of pull requests to retrieve.
          */
-        public getPullRequestsByProject (params: {  organization: string; project: string; apiVersion: string; searchCriteriaIncludeLinks?: boolean; searchCriteriaSourceRefName?: string; searchCriteriaSourceRepositoryId?: string; searchCriteriaTargetRefName?: string; searchCriteriaStatus?: string; searchCriteriaReviewerId?: string; searchCriteriaCreatorId?: string; searchCriteriaRepositoryId?: string; maxCommentLength?: number; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitPullRequest>> {
+        public getPullRequestsByProject (params: {  organization: string; project: string; apiVersion: string; searchCriteriaIncludeLinks?: boolean; searchCriteriaSourceRefName?: string; searchCriteriaSourceRepositoryId?: string; searchCriteriaTargetRefName?: string; searchCriteriaStatus?: string; searchCriteriaReviewerId?: string; searchCriteriaCreatorId?: string; searchCriteriaRepositoryId?: string; maxCommentLength?: number; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitPullRequest>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/pullrequests'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -61652,7 +61653,7 @@ export interface YamlSourceReference {
          * @param searchCriteriaToDate Search criteria attributes: fromDate, toDate, pusherId, refName, includeRefUpdates or includeLinks. fromDate: Start date to search from. toDate: End date to search to. pusherId: Identity of the person who submitted the push. refName: Branch name to consider. includeRefUpdates: If true, include the list of refs that were updated by the push. includeLinks: Whether to include the _links field on the shallow references.
          * @param searchCriteriaFromDate Search criteria attributes: fromDate, toDate, pusherId, refName, includeRefUpdates or includeLinks. fromDate: Start date to search from. toDate: End date to search to. pusherId: Identity of the person who submitted the push. refName: Branch name to consider. includeRefUpdates: If true, include the list of refs that were updated by the push. includeLinks: Whether to include the _links field on the shallow references.
          */
-        public getPushes (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; $Skip?: number; $Top?: number; searchCriteriaIncludeLinks?: boolean; searchCriteriaIncludeRefUpdates?: boolean; searchCriteriaRefName?: string; searchCriteriaPusherId?: string; searchCriteriaToDate?: Date; searchCriteriaFromDate?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitPush>> {
+        public getPushes (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; $Skip?: number; $Top?: number; searchCriteriaIncludeLinks?: boolean; searchCriteriaIncludeRefUpdates?: boolean; searchCriteriaRefName?: string; searchCriteriaPusherId?: string; searchCriteriaToDate?: Date; searchCriteriaFromDate?: Date; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitPush>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/pushes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -62373,7 +62374,7 @@ export interface YamlSourceReference {
          * @param $Depth In the folder of queries, return child queries and folders to this depth.
          * @param $IncludeDeleted Include deleted queries and folders
          */
-        public getQueries (params: {  organization: string; project: string; apiVersion: string; $Expand?: string; $Depth?: number; $IncludeDeleted?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<QueryHierarchyItem>> {
+        public getQueries (params: {  organization: string; project: string; apiVersion: string; $Expand?: string; $Depth?: number; $IncludeDeleted?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<QueryHierarchyItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/queries'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -62438,7 +62439,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getQueriesBatch (params: {  organization: string; body: QueryBatchGetRequest; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<QueryHierarchyItem>> {
+        public getQueriesBatch (params: {  organization: string; body: QueryBatchGetRequest; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<QueryHierarchyItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/queriesbatch'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -62790,7 +62791,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param includeUrls True to return REST Urls with the response.  Default is True.
          */
-        public getRecycleBinPackageVersions (params: {  organization: string; feedId: string; packageId: string; apiVersion: string; includeUrls?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<RecycleBinPackageVersion>> {
+        public getRecycleBinPackageVersions (params: {  organization: string; feedId: string; packageId: string; apiVersion: string; includeUrls?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<RecycleBinPackageVersion>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/RecycleBin/Packages/{packageId}/Versions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId))
@@ -62857,7 +62858,7 @@ export interface YamlSourceReference {
          * @param $Skip Skip the first N packages.
          * @param includeAllVersions True to return all versions of the package in the response.  Default is false (latest version only).
          */
-        public getRecycleBinPackages (params: {  organization: string; feedId: string; apiVersion: string; protocolType?: string; packageNameQuery?: string; includeUrls?: boolean; $Top?: number; $Skip?: number; includeAllVersions?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ModelPackage>> {
+        public getRecycleBinPackages (params: {  organization: string; feedId: string; apiVersion: string; protocolType?: string; packageNameQuery?: string; includeUrls?: boolean; $Top?: number; $Skip?: number; includeAllVersions?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ModelPackage>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/Feeds/{feedId}/RecycleBin/Packages'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'feedId' + '}', String(params.feedId));
@@ -63064,7 +63065,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getDeletedWorkItemShallowReferences (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemDeleteShallowReference>> {
+        public getDeletedWorkItemShallowReferences (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemDeleteShallowReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/recyclebin'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -63207,7 +63208,7 @@ export interface YamlSourceReference {
          * @param $Top [optional] Maximum number of refs to return. It cannot be bigger than 1000. If it is not provided but continuationToken is, top will default to 100.
          * @param continuationToken The continuation token used for pagination.
          */
-        public getRefs (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; filter?: string; includeLinks?: boolean; includeStatuses?: boolean; includeMyBranches?: boolean; latestStatusesOnly?: boolean; peelTags?: boolean; filterContains?: string; $Top?: number; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitRef>> {
+        public getRefs (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; filter?: string; includeLinks?: boolean; includeStatuses?: boolean; includeMyBranches?: boolean; latestStatusesOnly?: boolean; peelTags?: boolean; filterContains?: string; $Top?: number; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitRef>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/refs'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -63383,7 +63384,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param projectId ID or name of the team project. Optional if specifying an ID for repository.
          */
-        public updateRefs (params: {  organization: string; body: Array<GitRefUpdate>; repositoryId: string; project: string; apiVersion: string; projectId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitRefUpdateResult>> {
+        public updateRefs (params: {  organization: string; body: Array<GitRefUpdate>; repositoryId: string; project: string; apiVersion: string; projectId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitRefUpdateResult>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/refs'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -63644,7 +63645,7 @@ export interface YamlSourceReference {
          * @param repositoryId The id of the repository.
          * @param identityId The id of the identity whose favorites are to be retrieved. If null, the requesting identity is used.
          */
-        public getRefFavorites (params: {  organization: string; project: string; apiVersion: string; repositoryId?: string; identityId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitRefFavorite>> {
+        public getRefFavorites (params: {  organization: string; project: string; apiVersion: string; repositoryId?: string; identityId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitRefFavorite>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/favorites/refs'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -63925,7 +63926,7 @@ export interface YamlSourceReference {
          * @param releaseIdFilter A comma-delimited list of releases Ids. Only releases with these Ids will be returned.
          * @param path Releases under this folder path will be returned
          */
-        public getReleases (params: {  organization: string; project: string; apiVersion: string; definitionId?: number; definitionEnvironmentId?: number; searchText?: string; createdBy?: string; statusFilter?: string; environmentStatusFilter?: number; minCreatedTime?: Date; maxCreatedTime?: Date; queryOrder?: string; $Top?: number; continuationToken?: number; $Expand?: string; artifactTypeId?: string; sourceId?: string; artifactVersionId?: string; sourceBranchFilter?: string; isDeleted?: boolean; tagFilter?: string; propertyFilters?: string; releaseIdFilter?: string; path?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Release>> {
+        public getReleases (params: {  organization: string; project: string; apiVersion: string; definitionId?: number; definitionEnvironmentId?: number; searchText?: string; createdBy?: string; statusFilter?: string; environmentStatusFilter?: number; minCreatedTime?: Date; maxCreatedTime?: Date; queryOrder?: string; $Top?: number; continuationToken?: number; $Expand?: string; artifactTypeId?: string; sourceId?: string; artifactVersionId?: string; sourceBranchFilter?: string; isDeleted?: boolean; tagFilter?: string; propertyFilters?: string; releaseIdFilter?: string; path?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Release>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/release/releases'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -64909,7 +64910,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getDeletedRepositories (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitDeletedRepository>> {
+        public getDeletedRepositories (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitDeletedRepository>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/deletedrepositories'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -64961,7 +64962,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getRecycleBinRepositories (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitDeletedRepository>> {
+        public getRecycleBinRepositories (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitDeletedRepository>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/recycleBin/repositories'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -65016,7 +65017,7 @@ export interface YamlSourceReference {
          * @param includeAllUrls [optional] True to include all remote URLs. The default value is false.
          * @param includeHidden [optional] True to include hidden repositories. The default value is false.
          */
-        public getRepositories (params: {  organization: string; project: string; apiVersion: string; includeLinks?: boolean; includeAllUrls?: boolean; includeHidden?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitRepository>> {
+        public getRepositories (params: {  organization: string; project: string; apiVersion: string; includeLinks?: boolean; includeAllUrls?: boolean; includeHidden?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitRepository>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -65341,7 +65342,7 @@ export interface YamlSourceReference {
          * @param collection A valid debug entry collection name. Must be &quot;debugentries&quot;.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public createRequestsRequestIdDebugEntriesAsync (params: {  organization: string; body: DebugEntryCreateBatch; requestId: string; collection: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DebugEntry>> {
+        public createRequestsRequestIdDebugEntriesAsync (params: {  organization: string; body: DebugEntryCreateBatch; requestId: string; collection: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DebugEntry>> {
             const localVarPath = this.basePath + '/{organization}/_apis/symbol/requests/{requestId}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'requestId' + '}', String(params.requestId));
@@ -65525,7 +65526,7 @@ export interface YamlSourceReference {
          * @param agentCloudId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getAgentCloudRequests (params: {  organization: string; agentCloudId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TaskAgentCloudRequest>> {
+        public getAgentCloudRequests (params: {  organization: string; agentCloudId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TaskAgentCloudRequest>> {
             const localVarPath = this.basePath + '/{organization}/_apis/distributedtask/agentclouds/{agentCloudId}/requests'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'agentCloudId' + '}', String(params.agentCloudId));
@@ -65885,7 +65886,7 @@ export interface YamlSourceReference {
          * @param definitionId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public authorizeDefinitionResources (params: {  organization: string; body: Array<DefinitionResourceReference>; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DefinitionResourceReference>> {
+        public authorizeDefinitionResources (params: {  organization: string; body: Array<DefinitionResourceReference>; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DefinitionResourceReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{definitionId}/resources'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -65950,7 +65951,7 @@ export interface YamlSourceReference {
          * @param definitionId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getDefinitionResources (params: {  organization: string; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DefinitionResourceReference>> {
+        public getDefinitionResources (params: {  organization: string; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DefinitionResourceReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{definitionId}/resources'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -66151,7 +66152,7 @@ export interface YamlSourceReference {
          * @param runId Test run ID into which test results to add.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.6&#39; to use this version of the api.
          */
-        public addTestResultsToTestRun (params: {  organization: string; body: Array<TestCaseResult>; project: string; runId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestCaseResult>> {
+        public addTestResultsToTestRun (params: {  organization: string; body: Array<TestCaseResult>; project: string; runId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestCaseResult>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/results'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -66341,7 +66342,7 @@ export interface YamlSourceReference {
          * @param $Top Number of test results to return. Maximum is 1000 when detailsToInclude is None and 200 otherwise.
          * @param outcomes Comma separated list of test outcomes to filter test results.
          */
-        public getTestResults (params: {  organization: string; project: string; runId: number; apiVersion: string; detailsToInclude?: string; $Skip?: number; $Top?: number; outcomes?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestCaseResult>> {
+        public getTestResults (params: {  organization: string; project: string; runId: number; apiVersion: string; detailsToInclude?: string; $Skip?: number; $Top?: number; outcomes?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestCaseResult>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/results'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -66416,7 +66417,7 @@ export interface YamlSourceReference {
          * @param runId Test run ID whose test results to update.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.6&#39; to use this version of the api.
          */
-        public updateTestResults (params: {  organization: string; body: Array<TestCaseResult>; project: string; runId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestCaseResult>> {
+        public updateTestResults (params: {  organization: string; body: Array<TestCaseResult>; project: string; runId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestCaseResult>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Runs/{runId}/results'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -66953,7 +66954,7 @@ export interface YamlSourceReference {
          * @param $Top The number of revisions to retrieve.
          * @param $Skip The number of revisions to ignore. For example, to retrieve results 101-150, set top to 50 and skip to 100.
          */
-        public getPolicyConfigurationRevisions (params: {  organization: string; project: string; configurationId: number; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PolicyConfiguration>> {
+        public getPolicyConfigurationRevisions (params: {  organization: string; project: string; configurationId: number; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PolicyConfiguration>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/policy/configurations/{configurationId}/revisions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -67091,7 +67092,7 @@ export interface YamlSourceReference {
          * @param $Skip 
          * @param $Expand 
          */
-        public getRevisions (params: {  organization: string; id: number; project: string; apiVersion: string; $Top?: number; $Skip?: number; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItem>> {
+        public getRevisions (params: {  organization: string; id: number; project: string; apiVersion: string; $Top?: number; $Skip?: number; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workItems/{id}/revisions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'id' + '}', String(params.id))
@@ -67320,7 +67321,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBoardRows (params: {  organization: string; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardRow>> {
+        public getBoardRows (params: {  organization: string; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardRow>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/boards/{board}/rows'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -67385,7 +67386,7 @@ export interface YamlSourceReference {
          * @param team Team ID or team name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public updateBoardRows (params: {  organization: string; body: Array<BoardRow>; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BoardRow>> {
+        public updateBoardRows (params: {  organization: string; body: Array<BoardRow>; project: string; board: string; team: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BoardRow>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/work/boards/{board}/rows'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -67664,7 +67665,7 @@ export interface YamlSourceReference {
          * @param witRefName The reference name of the work item type
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getProcessWorkItemTypeRules (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ProcessRule>> {
+        public getProcessWorkItemTypeRules (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ProcessRule>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes/{processId}/workItemTypes/{witRefName}/rules'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId))
@@ -68055,7 +68056,7 @@ export interface YamlSourceReference {
          * @param $Skip Number of test runs to skip.
          * @param $Top Number of test runs to return.
          */
-        public getTestRuns (params: {  organization: string; project: string; apiVersion: string; buildUri?: string; owner?: string; tmiRunId?: string; planId?: number; includeRunDetails?: boolean; automated?: boolean; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestRun>> {
+        public getTestRuns (params: {  organization: string; project: string; apiVersion: string; buildUri?: string; owner?: string; tmiRunId?: string; planId?: number; includeRunDetails?: boolean; automated?: boolean; $Skip?: number; $Top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestRun>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/runs'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -68221,7 +68222,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param localOnly If true, retrieve only local security namespaces.
          */
-        public querySecurityNamespaces (params: {  organization: string; securityNamespaceId: string; apiVersion: string; localOnly?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SecurityNamespaceDescription>> {
+        public querySecurityNamespaces (params: {  organization: string; securityNamespaceId: string; apiVersion: string; localOnly?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SecurityNamespaceDescription>> {
             const localVarPath = this.basePath + '/{organization}/_apis/securitynamespaces/{securityNamespaceId}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'securityNamespaceId' + '}', String(params.securityNamespaceId));
@@ -68291,7 +68292,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getGlobalPermissions (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GlobalPermission>> {
+        public getGlobalPermissions (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GlobalPermission>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/globalpermissions'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -68338,7 +68339,7 @@ export interface YamlSourceReference {
          * @param body New permissions for the organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public setGlobalPermissions (params: {  organization: string; body: Array<GlobalPermission>; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GlobalPermission>> {
+        public setGlobalPermissions (params: {  organization: string; body: Array<GlobalPermission>; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GlobalPermission>> {
             const localVarPath = this.basePath + '/{organization}/_apis/packaging/globalpermissions'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -68479,7 +68480,7 @@ export interface YamlSourceReference {
          * @param source Source of the test session.
          * @param includeOnlyCompletedSessions If true, it returns test sessions in completed state. Otherwise, it returns test sessions for all states
          */
-        public getTestSessions (params: {  organization: string; project: string; team: string; apiVersion: string; period?: number; allSessions?: boolean; includeAllProperties?: boolean; source?: string; includeOnlyCompletedSessions?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestSession>> {
+        public getTestSessions (params: {  organization: string; project: string; team: string; apiVersion: string; period?: number; allSessions?: boolean; includeAllProperties?: boolean; source?: string; includeOnlyCompletedSessions?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestSession>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/test/session'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -68956,7 +68957,7 @@ export interface YamlSourceReference {
          * @param $Top Max number of changes to return
          * @param $Skip Number of changes to skip
          */
-        public getShelvesetChanges (params: {  organization: string; shelvesetId: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TfvcChange>> {
+        public getShelvesetChanges (params: {  organization: string; shelvesetId: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TfvcChange>> {
             const localVarPath = this.basePath + '/{organization}/_apis/tfvc/shelvesets/changes'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -69019,7 +69020,7 @@ export interface YamlSourceReference {
          * @param shelvesetId Shelveset&#39;s unique ID
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getShelvesetWorkItems (params: {  organization: string; shelvesetId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<AssociatedWorkItem>> {
+        public getShelvesetWorkItems (params: {  organization: string; shelvesetId: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<AssociatedWorkItem>> {
             const localVarPath = this.basePath + '/{organization}/_apis/tfvc/shelvesets/workitems'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -69172,7 +69173,7 @@ export interface YamlSourceReference {
          * @param commitOrBranch The identifier of the commit or branch from which a file&#39;s contents are retrieved.
          * @param path The path contents to list, relative to the root of the repository.
          */
-        public getPathContents (params: {  organization: string; project: string; providerName: string; apiVersion: string; serviceEndpointId?: string; repository?: string; commitOrBranch?: string; path?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SourceRepositoryItem>> {
+        public getPathContents (params: {  organization: string; project: string; providerName: string; apiVersion: string; serviceEndpointId?: string; repository?: string; commitOrBranch?: string; path?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SourceRepositoryItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/sourceProviders/{providerName}/pathcontents'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -69322,7 +69323,7 @@ export interface YamlSourceReference {
          * @param serviceEndpointId If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
          * @param repository If specified, the vendor-specific identifier or the name of the repository to get branches. Can only be omitted for providers that do not support multiple repositories.
          */
-        public listBranches (params: {  organization: string; project: string; providerName: string; apiVersion: string; serviceEndpointId?: string; repository?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public listBranches (params: {  organization: string; project: string; providerName: string; apiVersion: string; serviceEndpointId?: string; repository?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/sourceProviders/{providerName}/branches'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -69470,7 +69471,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public listSourceProviders (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SourceProviderAttributes>> {
+        public listSourceProviders (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SourceProviderAttributes>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/sourceproviders'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -69525,7 +69526,7 @@ export interface YamlSourceReference {
          * @param serviceEndpointId If specified, the ID of the service endpoint to query. Can only be omitted for providers that do not use service endpoints, e.g. TFVC or TFGit.
          * @param repository If specified, the vendor-specific identifier or the name of the repository to get webhooks. Can only be omitted for providers that do not support multiple repositories.
          */
-        public listWebhooks (params: {  organization: string; project: string; providerName: string; apiVersion: string; serviceEndpointId?: string; repository?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<RepositoryWebhook>> {
+        public listWebhooks (params: {  organization: string; project: string; providerName: string; apiVersion: string; serviceEndpointId?: string; repository?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<RepositoryWebhook>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/sourceProviders/{providerName}/webhooks'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -70070,7 +70071,7 @@ export interface YamlSourceReference {
          * @param witRefName The reference name of the work item type
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getStateDefinitions (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemStateResultModel>> {
+        public getStateDefinitions (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemStateResultModel>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processdefinitions/{processId}/workItemTypes/{witRefName}/states'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId))
@@ -70128,7 +70129,7 @@ export interface YamlSourceReference {
          * @param witRefName The reference name of the work item type
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getStateDefinitions_4 (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemStateResultModel>> {
+        public getStateDefinitions_4 (params: {  organization: string; processId: string; witRefName: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemStateResultModel>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes/{processId}/workItemTypes/{witRefName}/states'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId))
@@ -70492,7 +70493,7 @@ export interface YamlSourceReference {
          * @param baseVersionDescriptorVersion Version string identifier (name of tag/branch, SHA1 of commit)
          * @param baseVersionDescriptorVersionType Version type (branch, tag, or commit). Determines how Id is interpreted
          */
-        public getBranches (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; baseVersionDescriptorVersionOptions?: string; baseVersionDescriptorVersion?: string; baseVersionDescriptorVersionType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitBranchStats>> {
+        public getBranches (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; baseVersionDescriptorVersionOptions?: string; baseVersionDescriptorVersion?: string; baseVersionDescriptorVersionType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitBranchStats>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/stats/branches'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -70751,7 +70752,7 @@ export interface YamlSourceReference {
          * @param skip Optional. The number of statuses to ignore. Default is 0. For example, to retrieve results 101-150, set top to 50 and skip to 100.
          * @param latestOnly The flag indicates whether to get only latest statuses grouped by &#x60;Context.Name&#x60; and &#x60;Context.Genre&#x60;.
          */
-        public getStatuses (params: {  organization: string; commitId: string; repositoryId: string; project: string; apiVersion: string; top?: number; skip?: number; latestOnly?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitStatus>> {
+        public getStatuses (params: {  organization: string; commitId: string; repositoryId: string; project: string; apiVersion: string; top?: number; skip?: number; latestOnly?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitStatus>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/commits/{commitId}/statuses'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'commitId' + '}', String(params.commitId))
@@ -71420,7 +71421,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getSubscriptionTemplates (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<NotificationSubscriptionTemplate>> {
+        public getSubscriptionTemplates (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<NotificationSubscriptionTemplate>> {
             const localVarPath = this.basePath + '/{organization}/_apis/notification/subscriptiontemplates'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -71527,7 +71528,7 @@ export interface YamlSourceReference {
          * @param consumerId ID for a consumer.
          * @param consumerActionId ID for a consumerActionId.
          */
-        public listSubscriptions (params: {  organization: string; apiVersion: string; publisherId?: string; eventType?: string; consumerId?: string; consumerActionId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Subscription>> {
+        public listSubscriptions (params: {  organization: string; apiVersion: string; publisherId?: string; eventType?: string; consumerId?: string; consumerActionId?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Subscription>> {
             const localVarPath = this.basePath + '/{organization}/_apis/hooks/subscriptions'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -71592,7 +71593,7 @@ export interface YamlSourceReference {
          * @param ids 
          * @param queryFlags 
          */
-        public listSubscriptions_4 (params: {  organization: string; apiVersion: string; targetId?: string; ids?: string; queryFlags?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<NotificationSubscription>> {
+        public listSubscriptions_4 (params: {  organization: string; apiVersion: string; targetId?: string; ids?: string; queryFlags?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<NotificationSubscription>> {
             const localVarPath = this.basePath + '/{organization}/_apis/notification/subscriptions'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -71651,7 +71652,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public querySubscriptions (params: {  body: SubscriptionQuery; organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<NotificationSubscription>> {
+        public querySubscriptions (params: {  body: SubscriptionQuery; organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<NotificationSubscription>> {
             const localVarPath = this.basePath + '/{organization}/_apis/notification/subscriptionquery'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -71907,7 +71908,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getSuggestions (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GitSuggestion>> {
+        public getSuggestions (params: {  organization: string; repositoryId: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GitSuggestion>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/git/repositories/{repositoryId}/suggestions'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'repositoryId' + '}', String(params.repositoryId))
@@ -71982,7 +71983,7 @@ export interface YamlSourceReference {
          * @param suiteId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public addTestCasesToSuite (params: {  organization: string; body: Array<SuiteTestCaseCreateUpdateParameters>; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestCase>> {
+        public addTestCasesToSuite (params: {  organization: string; body: Array<SuiteTestCaseCreateUpdateParameters>; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestCase>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/Suites/{suiteId}/TestCase'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72055,7 +72056,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param witFields 
          */
-        public getTestCase (params: {  organization: string; project: string; planId: number; suiteId: number; testCaseIds: string; apiVersion: string; witFields?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestCase>> {
+        public getTestCase (params: {  organization: string; project: string; planId: number; suiteId: number; testCaseIds: string; apiVersion: string; witFields?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestCase>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/Suites/{suiteId}/TestCase/{testCaseIds}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72132,7 +72133,7 @@ export interface YamlSourceReference {
          * @param witFields 
          * @param continuationToken 
          */
-        public getTestCaseList (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; testIds?: string; configurationIds?: string; witFields?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestCase>> {
+        public getTestCaseList (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; testIds?: string; configurationIds?: string; witFields?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestCase>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/Suites/{suiteId}/TestCase'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72283,7 +72284,7 @@ export interface YamlSourceReference {
          * @param suiteId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public updateSuiteTestCases (params: {  organization: string; body: Array<SuiteTestCaseCreateUpdateParameters>; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestCase>> {
+        public updateSuiteTestCases (params: {  organization: string; body: Array<SuiteTestCaseCreateUpdateParameters>; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestCase>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/Suites/{suiteId}/TestCase'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72436,7 +72437,7 @@ export interface YamlSourceReference {
          * @param tag The tag to add.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public addBuildTag (params: {  organization: string; project: string; buildId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public addBuildTag (params: {  organization: string; project: string; buildId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/tags/{tag}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72500,7 +72501,7 @@ export interface YamlSourceReference {
          * @param buildId The ID of the build.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public addBuildTags (params: {  organization: string; body: Array<string>; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public addBuildTags (params: {  organization: string; body: Array<string>; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/tags'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72566,7 +72567,7 @@ export interface YamlSourceReference {
          * @param tag The tag to add.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public addDefinitionTag (params: {  organization: string; project: string; definitionId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public addDefinitionTag (params: {  organization: string; project: string; definitionId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags/{tag}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72630,7 +72631,7 @@ export interface YamlSourceReference {
          * @param definitionId The ID of the definition.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public addDefinitionTags (params: {  organization: string; body: Array<string>; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public addDefinitionTags (params: {  organization: string; body: Array<string>; project: string; definitionId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72696,7 +72697,7 @@ export interface YamlSourceReference {
          * @param tag The tag to remove.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public deleteBuildTag (params: {  organization: string; project: string; buildId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public deleteBuildTag (params: {  organization: string; project: string; buildId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/tags/{tag}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72760,7 +72761,7 @@ export interface YamlSourceReference {
          * @param tag The tag to remove.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public deleteDefinitionTag (params: {  organization: string; project: string; definitionId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public deleteDefinitionTag (params: {  organization: string; project: string; definitionId: number; tag: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags/{tag}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72823,7 +72824,7 @@ export interface YamlSourceReference {
          * @param buildId The ID of the build.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getBuildTags (params: {  organization: string; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public getBuildTags (params: {  organization: string; project: string; buildId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/builds/{buildId}/tags'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72882,7 +72883,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param revision The definition revision number. If not specified, uses the latest revision of the definition.
          */
-        public getDefinitionTags (params: {  organization: string; project: string; definitionId: number; apiVersion: string; revision?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public getDefinitionTags (params: {  organization: string; project: string; definitionId: number; apiVersion: string; revision?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -72943,7 +72944,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getTags (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<string>> {
+        public getTags (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<string>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/tags'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -73154,7 +73155,7 @@ export interface YamlSourceReference {
          * @param enabled Get only deployment targets that are enabled or disabled. Default is &#39;null&#39; which returns all the targets.
          * @param propertyFilters 
          */
-        public getDeploymentTargets (params: {  organization: string; project: string; deploymentGroupId: number; apiVersion: string; tags?: string; name?: string; partialNameMatch?: boolean; $Expand?: string; agentStatus?: string; agentJobResult?: string; continuationToken?: string; $Top?: number; enabled?: boolean; propertyFilters?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DeploymentMachine>> {
+        public getDeploymentTargets (params: {  organization: string; project: string; deploymentGroupId: number; apiVersion: string; tags?: string; name?: string; partialNameMatch?: boolean; $Expand?: string; agentStatus?: string; agentJobResult?: string; continuationToken?: string; $Top?: number; enabled?: boolean; propertyFilters?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DeploymentMachine>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/distributedtask/deploymentgroups/{deploymentGroupId}/targets'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -73253,7 +73254,7 @@ export interface YamlSourceReference {
          * @param deploymentGroupId ID of the deployment group in which deployment targets are updated.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public updateDeploymentTargets (params: {  organization: string; body: Array<DeploymentTargetUpdateParameter>; project: string; deploymentGroupId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<DeploymentMachine>> {
+        public updateDeploymentTargets (params: {  organization: string; body: Array<DeploymentTargetUpdateParameter>; project: string; deploymentGroupId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<DeploymentMachine>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/distributedtask/deploymentgroups/{deploymentGroupId}/targets'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -73462,7 +73463,7 @@ export interface YamlSourceReference {
          * @param continuationToken Gets the task groups after the continuation token provided.
          * @param queryOrder Gets the results in the defined order. Default is &#39;CreatedOnDescending&#39;.
          */
-        public getTaskGroups (params: {  organization: string; project: string; taskGroupId: string; apiVersion: string; expanded?: boolean; taskIdFilter?: string; deleted?: boolean; $Top?: number; continuationToken?: Date; queryOrder?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TaskGroup>> {
+        public getTaskGroups (params: {  organization: string; project: string; taskGroupId: string; apiVersion: string; expanded?: boolean; taskIdFilter?: string; deleted?: boolean; $Top?: number; continuationToken?: Date; queryOrder?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TaskGroup>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/distributedtask/taskgroups/{taskGroupId}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -74034,7 +74035,7 @@ export interface YamlSourceReference {
          * @param $Top Maximum number of teams to return.
          * @param $Skip Number of teams to skip.
          */
-        public getAllTeams (params: {  organization: string; apiVersion: string; $Mine?: boolean; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WebApiTeam>> {
+        public getAllTeams (params: {  organization: string; apiVersion: string; $Mine?: boolean; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WebApiTeam>> {
             const localVarPath = this.basePath + '/{organization}/_apis/teams'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -74154,7 +74155,7 @@ export interface YamlSourceReference {
          * @param $Top 
          * @param $Skip 
          */
-        public getTeamMembersWithExtendedProperties (params: {  organization: string; projectId: string; teamId: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TeamMember>> {
+        public getTeamMembersWithExtendedProperties (params: {  organization: string; projectId: string; teamId: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TeamMember>> {
             const localVarPath = this.basePath + '/{organization}/_apis/projects/{projectId}/teams/{teamId}/members'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'projectId' + '}', String(params.projectId))
@@ -74222,7 +74223,7 @@ export interface YamlSourceReference {
          * @param $Top Maximum number of teams to return.
          * @param $Skip Number of teams to skip.
          */
-        public getTeams (params: {  organization: string; projectId: string; apiVersion: string; $Mine?: boolean; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WebApiTeam>> {
+        public getTeams (params: {  organization: string; projectId: string; apiVersion: string; $Mine?: boolean; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WebApiTeam>> {
             const localVarPath = this.basePath + '/{organization}/_apis/projects/{projectId}/teams'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'projectId' + '}', String(params.projectId));
@@ -74816,7 +74817,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          */
-        public getTemplates (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<BuildDefinitionTemplate>> {
+        public getTemplates (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<BuildDefinitionTemplate>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/build/definitions/templates'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -74870,7 +74871,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param workitemtypename Optional, When specified returns templates for given Work item type.
          */
-        public getTemplates_3 (params: {  organization: string; project: string; team: string; apiVersion: string; workitemtypename?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemTemplateReference>> {
+        public getTemplates_3 (params: {  organization: string; project: string; team: string; apiVersion: string; workitemtypename?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemTemplateReference>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/wit/templates'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -75323,7 +75324,7 @@ export interface YamlSourceReference {
          * @param toDate Date before which test definitions were crated
          * @param top 
          */
-        public getTestDefinitions (params: {  organization: string; apiVersion: string; fromDate?: string; toDate?: string; top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestDefinitionBasic>> {
+        public getTestDefinitions (params: {  organization: string; apiVersion: string; fromDate?: string; toDate?: string; top?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestDefinitionBasic>> {
             const localVarPath = this.basePath + '/{organization}/_apis/clt/testdefinitions'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -75965,7 +75966,7 @@ export interface YamlSourceReference {
          * @param includePlanDetails Get all properties of the test plan
          * @param filterActivePlans Get just the active plans
          */
-        public getTestPlans (params: {  organization: string; project: string; apiVersion: string; owner?: string; continuationToken?: string; includePlanDetails?: boolean; filterActivePlans?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestPlan>> {
+        public getTestPlans (params: {  organization: string; project: string; apiVersion: string; owner?: string; continuationToken?: string; includePlanDetails?: boolean; filterActivePlans?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestPlan>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/plans'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -76117,7 +76118,7 @@ export interface YamlSourceReference {
          * @param pointIds 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getPoints (params: {  organization: string; project: string; planId: number; suiteId: number; pointIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestPoint>> {
+        public getPoints (params: {  organization: string; project: string; planId: number; suiteId: number; pointIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestPoint>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/Suites/{suiteId}/TestPoint/{pointIds}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -76189,7 +76190,7 @@ export interface YamlSourceReference {
          * @param testCaseId 
          * @param continuationToken 
          */
-        public getPointsList (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; testPointIds?: string; testCaseId?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestPoint>> {
+        public getPointsList (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; testPointIds?: string; testCaseId?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestPoint>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/Suites/{suiteId}/TestPoint'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -76266,7 +76267,7 @@ export interface YamlSourceReference {
          * @param suiteId 
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public updateTestPoints (params: {  organization: string; body: Array<TestPointUpdateParams>; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestPoint>> {
+        public updateTestPoints (params: {  organization: string; body: Array<TestPointUpdateParams>; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestPoint>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/Suites/{suiteId}/TestPoint'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -76767,7 +76768,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param suiteEntryType 
          */
-        public getSuiteEntries (params: {  organization: string; project: string; suiteId: number; apiVersion: string; suiteEntryType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SuiteEntry>> {
+        public getSuiteEntries (params: {  organization: string; project: string; suiteId: number; apiVersion: string; suiteEntryType?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SuiteEntry>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/suiteentry/{suiteId}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -76830,7 +76831,7 @@ export interface YamlSourceReference {
          * @param suiteId Id of the parent test suite.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public reorderSuiteEntries (params: {  organization: string; body: Array<SuiteEntryUpdateParams>; project: string; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SuiteEntry>> {
+        public reorderSuiteEntries (params: {  organization: string; body: Array<SuiteEntryUpdateParams>; project: string; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SuiteEntry>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/suiteentry/{suiteId}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -76912,7 +76913,7 @@ export interface YamlSourceReference {
          * @param testCaseIds IDs of the test cases to add to the suite. Ids are specified in comma separated format.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          */
-        public addTestCasesToSuite (params: {  organization: string; project: string; planId: number; suiteId: number; testCaseIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SuiteTestCase>> {
+        public addTestCasesToSuite (params: {  organization: string; project: string; planId: number; suiteId: number; testCaseIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SuiteTestCase>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Plans/{planId}/suites/{suiteId}/testcases/{testCaseIds}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -77109,7 +77110,7 @@ export interface YamlSourceReference {
          * @param testCaseId ID of the test case for which suites need to be fetched.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getSuitesByTestCaseId (params: {  organization: string; testCaseId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestSuite>> {
+        public getSuitesByTestCaseId (params: {  organization: string; testCaseId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestSuite>> {
             const localVarPath = this.basePath + '/{organization}/_apis/testplan/suites'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -77236,7 +77237,7 @@ export interface YamlSourceReference {
          * @param suiteId ID of the suite to get.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          */
-        public getTestCases (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SuiteTestCase>> {
+        public getTestCases (params: {  organization: string; project: string; planId: number; suiteId: number; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SuiteTestCase>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Plans/{planId}/suites/{suiteId}/testcases'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -77371,7 +77372,7 @@ export interface YamlSourceReference {
          * @param continuationToken If the list of suites returned is not complete, a continuation token to query next batch of suites is included in the response header as &quot;x-ms-continuationtoken&quot;. Omit this parameter to get the first batch of test suites.
          * @param asTreeView If the suites returned should be in a tree structure.
          */
-        public getTestSuitesForPlan (params: {  organization: string; project: string; planId: number; apiVersion: string; expand?: string; continuationToken?: string; asTreeView?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestSuite>> {
+        public getTestSuitesForPlan (params: {  organization: string; project: string; planId: number; apiVersion: string; expand?: string; continuationToken?: string; asTreeView?: boolean; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestSuite>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/Plans/{planId}/suites'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -77514,7 +77515,7 @@ export interface YamlSourceReference {
          * @param testCaseIds IDs of the test cases to add to the suite. Ids are specified in comma separated format.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          */
-        public updateSuiteTestCases (params: {  organization: string; body: SuiteTestCaseUpdateModel; project: string; planId: number; suiteId: number; testCaseIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<SuiteTestCase>> {
+        public updateSuiteTestCases (params: {  organization: string; body: SuiteTestCaseUpdateModel; project: string; planId: number; suiteId: number; testCaseIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<SuiteTestCase>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/test/Plans/{planId}/suites/{suiteId}/testcases/{testCaseIds}'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -78150,7 +78151,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getPolicyTypes (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<PolicyType>> {
+        public getPolicyTypes (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<PolicyType>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/policy/types'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -78203,7 +78204,7 @@ export interface YamlSourceReference {
          * @param type Type of service endpoint.
          * @param scheme Scheme of service endpoint.
          */
-        public getServiceEndpointTypes (params: {  organization: string; apiVersion: string; type?: string; scheme?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ServiceEndpointType>> {
+        public getServiceEndpointTypes (params: {  organization: string; apiVersion: string; type?: string; scheme?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ServiceEndpointType>> {
             const localVarPath = this.basePath + '/{organization}/_apis/serviceendpoint/types'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -78760,7 +78761,7 @@ export interface YamlSourceReference {
          * @param $Top 
          * @param $Skip 
          */
-        public getUpdates (params: {  organization: string; id: number; project: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemUpdate>> {
+        public getUpdates (params: {  organization: string; id: number; project: string; apiVersion: string; $Top?: number; $Skip?: number; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemUpdate>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workItems/{id}/updates'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'id' + '}', String(params.id))
@@ -79428,7 +79429,7 @@ export interface YamlSourceReference {
          * @param subjectTypes A comma separated list of user subject subtypes to reduce the retrieved results, e.g. msa’, ‘aad’, ‘svc’ (service identity), ‘imp’ (imported identity), etc.
          * @param continuationToken An opaque data blob that allows the next page of data to resume immediately after where the previous page ended. The only reliable way to know if there is more data left is the presence of a continuation token.
          */
-        public listUsers (params: {  organization: string; apiVersion: string; subjectTypes?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<GraphUser>> {
+        public listUsers (params: {  organization: string; apiVersion: string; subjectTypes?: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<GraphUser>> {
             const localVarPath = this.basePath + '/{organization}/_apis/graph/users'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -79675,7 +79676,7 @@ export interface YamlSourceReference {
          * @param groupIds Comma separated list of Ids of variable groups.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getVariableGroupsById (params: {  organization: string; project: string; groupIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<VariableGroup>> {
+        public getVariableGroupsById (params: {  organization: string; project: string; groupIds: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<VariableGroup>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/distributedtask/variablegroups'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -79993,7 +79994,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param continuationToken If the list of variables returned is not complete, a continuation token to query next batch of variables is included in the response header as &quot;x-ms-continuationtoken&quot;. Omit this parameter to get the first batch of test variables.
          */
-        public getTestVariables (params: {  organization: string; project: string; apiVersion: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<TestVariable>> {
+        public getTestVariables (params: {  organization: string; project: string; apiVersion: string; continuationToken?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<TestVariable>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/testplan/variables'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -80479,7 +80480,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param eTag Dashboard Widgets Version
          */
-        public getWidgets (params: {  organization: string; project: string; dashboardId: string; team: string; apiVersion: string; eTag?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Widget>> {
+        public getWidgets (params: {  organization: string; project: string; dashboardId: string; team: string; apiVersion: string; eTag?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Widget>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/dashboard/dashboards/{dashboardId}/widgets'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -80625,7 +80626,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param eTag Dashboard Widgets Version
          */
-        public replaceWidgets (params: {  organization: string; body: Array<Widget>; project: string; dashboardId: string; team: string; apiVersion: string; eTag?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Widget>> {
+        public replaceWidgets (params: {  organization: string; body: Array<Widget>; project: string; dashboardId: string; team: string; apiVersion: string; eTag?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Widget>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/dashboard/dashboards/{dashboardId}/widgets'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -80778,7 +80779,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param eTag Dashboard Widgets Version
          */
-        public updateWidgets (params: {  organization: string; body: Array<Widget>; project: string; dashboardId: string; team: string; apiVersion: string; eTag?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<Widget>> {
+        public updateWidgets (params: {  organization: string; body: Array<Widget>; project: string; dashboardId: string; team: string; apiVersion: string; eTag?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<Widget>> {
             const localVarPath = this.basePath + '/{organization}/{project}/{team}/_apis/dashboard/dashboards/{dashboardId}/widgets'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -81057,7 +81058,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getAllWikis (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WikiV2>> {
+        public getAllWikis (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WikiV2>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wiki/wikis'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -81548,7 +81549,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getWorkItemIcons (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemIcon>> {
+        public getWorkItemIcons (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemIcon>> {
             const localVarPath = this.basePath + '/{organization}/_apis/wit/workitemicons'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -81661,7 +81662,7 @@ export interface YamlSourceReference {
          * @param organization The name of the Azure DevOps organization.
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getRelationTypes (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemRelationType>> {
+        public getRelationTypes (params: {  organization: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemRelationType>> {
             const localVarPath = this.basePath + '/{organization}/_apis/wit/workitemrelationtypes'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -81799,7 +81800,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param action possible actions. Currently only supports checkin
          */
-        public getWorkItemNextStatesOnCheckinAction (params: {  organization: string; ids: string; apiVersion: string; action?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemNextStateOnTransition>> {
+        public getWorkItemNextStatesOnCheckinAction (params: {  organization: string; ids: string; apiVersion: string; action?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemNextStateOnTransition>> {
             const localVarPath = this.basePath + '/{organization}/_apis/wit/workitemtransitions'
                 .replace('{' + 'organization' + '}', String(params.organization));
 
@@ -81873,7 +81874,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getWorkItemTypeCategories (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemTypeCategory>> {
+        public getWorkItemTypeCategories (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemTypeCategory>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workitemtypecategories'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -81999,7 +82000,7 @@ export interface YamlSourceReference {
          * @param type The state name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getWorkItemTypeStates (params: {  organization: string; project: string; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemStateColor>> {
+        public getWorkItemTypeStates (params: {  organization: string; project: string; type: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemStateColor>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workitemtypes/{type}/states'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -82438,7 +82439,7 @@ export interface YamlSourceReference {
          * @param witRefNameForBehaviors Work item type reference name for the behavior
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBehaviorsForWorkItemType (params: {  organization: string; processId: string; witRefNameForBehaviors: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemTypeBehavior>> {
+        public getBehaviorsForWorkItemType (params: {  organization: string; processId: string; witRefNameForBehaviors: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemTypeBehavior>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processdefinitions/{processId}/workitemtypes/{witRefNameForBehaviors}/behaviors'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId))
@@ -82559,7 +82560,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          * @param $Expand Flag to determine what properties of work item type to return
          */
-        public getProcessWorkItemTypes (params: {  organization: string; processId: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<ProcessWorkItemType>> {
+        public getProcessWorkItemTypes (params: {  organization: string; processId: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<ProcessWorkItemType>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes/{processId}/workitemtypes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId));
@@ -82737,7 +82738,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          * @param $Expand 
          */
-        public getWorkItemTypes (params: {  organization: string; processId: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemTypeModel>> {
+        public getWorkItemTypes (params: {  organization: string; processId: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemTypeModel>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processdefinitions/{processId}/workitemtypes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId));
@@ -82793,7 +82794,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.2&#39; to use this version of the api.
          */
-        public getWorkItemTypes_2 (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemType>> {
+        public getWorkItemTypes_2 (params: {  organization: string; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemType>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workitemtypes'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -83253,7 +83254,7 @@ export interface YamlSourceReference {
          * @param witRefNameForBehaviors Work item type reference name for the behavior
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getBehaviorsForWorkItemType (params: {  organization: string; processId: string; witRefNameForBehaviors: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemTypeBehavior>> {
+        public getBehaviorsForWorkItemType (params: {  organization: string; processId: string; witRefNameForBehaviors: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemTypeBehavior>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processes/{processId}/workitemtypesbehaviors/{witRefNameForBehaviors}/behaviors'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId))
@@ -83526,7 +83527,7 @@ export interface YamlSourceReference {
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.3&#39; to use this version of the api.
          * @param $Expand Expand level for the API response. Properties: to include allowedvalues, default value, isRequired etc. as a part of response; None: to skip these properties.
          */
-        public getWorkItemTypeFieldsWithReferences (params: {  organization: string; project: string; type: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemTypeFieldWithReferences>> {
+        public getWorkItemTypeFieldsWithReferences (params: {  organization: string; project: string; type: string; apiVersion: string; $Expand?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemTypeFieldWithReferences>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workitemtypes/{type}/fields'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project))
@@ -83733,7 +83734,7 @@ export interface YamlSourceReference {
          * @param witRefNameForFields Work item type reference name for fields
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getWorkItemTypeFields (params: {  organization: string; processId: string; witRefNameForFields: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItemTypeFieldModel>> {
+        public getWorkItemTypeFields (params: {  organization: string; processId: string; witRefNameForFields: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItemTypeFieldModel>> {
             const localVarPath = this.basePath + '/{organization}/_apis/work/processdefinitions/{processId}/workItemTypes/{witRefNameForFields}/fields'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'processId' + '}', String(params.processId))
@@ -84169,7 +84170,7 @@ export interface YamlSourceReference {
          * @param $Expand The expand parameters for work item attributes. Possible options are { None, Relations, Fields, Links, All }.
          * @param errorPolicy The flag to control error policy in a bulk get work items request. Possible options are {Fail, Omit}.
          */
-        public getWorkItems (params: {  organization: string; ids: string; project: string; apiVersion: string; fields?: string; asOf?: Date; $Expand?: string; errorPolicy?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItem>> {
+        public getWorkItems (params: {  organization: string; ids: string; project: string; apiVersion: string; fields?: string; asOf?: Date; $Expand?: string; errorPolicy?: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workitems'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
@@ -84246,7 +84247,7 @@ export interface YamlSourceReference {
          * @param project Project ID or project name
          * @param apiVersion Version of the API to use.  This should be set to &#39;5.1-preview.1&#39; to use this version of the api.
          */
-        public getWorkItemsBatch (params: {  organization: string; body: WorkItemBatchGetRequest; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<Array<WorkItem>> {
+        public getWorkItemsBatch (params: {  organization: string; body: WorkItemBatchGetRequest; project: string; apiVersion: string; }, extraQueryParams?: any, extraFetchParams?: any ): Promise<ArrayWrapper<WorkItem>> {
             const localVarPath = this.basePath + '/{organization}/{project}/_apis/wit/workitemsbatch'
                 .replace('{' + 'organization' + '}', String(params.organization))
                 .replace('{' + 'project' + '}', String(params.project));
