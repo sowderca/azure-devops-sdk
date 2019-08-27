@@ -1,0 +1,43 @@
+name: release
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: filter-branch
+      uses: actions/bin/filter@master
+      with:
+        args: branch master
+    - name: install
+      uses: actions/npm@master
+      with:
+        args: ci
+    - name: document
+      uses: actions/npm@master
+      with:
+        args: run document --if-present
+    - name: deploy-docs-site
+      uses: maxheld83/ghpages@v0.2.1
+      env:
+        BUILD_DIR: docs/
+        GH_PAT: ${{ secrets.GH_PAT }}
+    - name: build
+      uses: actions/npm@master
+      with:
+        args: run build
+    - name: publish
+      uses: actions/npm@master
+      env:
+        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      with:
+        args: publish --access public --if-present
+

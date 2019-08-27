@@ -1,6 +1,5 @@
 'use strict';
 
-
 import {
     AccessControlEntriesApi,
     AccessControlListsApi,
@@ -716,13 +715,10 @@ export class ApiClient {
      * @description Could be used to set other forms of authentication outside of the PAT basic authentication provided by the default constructors.
      */
     public set Headers(headers: Headers | Map<string, string>) {
-        headers.forEach((value: string, key: string): void => {
-            Object.getOwnPropertyNames(this).filter((property: string): boolean => property.toLowerCase().includes('api')).forEach((property: string): void => {
-                // @ts-ignore
-                Reflect.defineProperty(this[property], 'defaultHeaders', {
-                    value: { key, value }
-                });
-            });
+        const updatedHeaders: { [key: string]: string } = { };
+        headers.forEach((value: string, key: string) => Object.assign(updatedHeaders, { key, value }));
+        Object.getOwnPropertyNames(this).filter((property: string): boolean => property.toLowerCase().includes('api')).forEach((property: string): void => {
+            Reflect.defineProperty(this[property], 'defaultHeaders', { value: updatedHeaders });
         });
     }
 }
