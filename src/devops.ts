@@ -716,7 +716,7 @@ export class ApiClient {
      */
     public set Headers(headers: Headers | Map<string, string>) {
         const updatedHeaders: { [key: string]: string } = { };
-        headers.forEach((value: string, key: string) => Object.assign(updatedHeaders, { key, value }));
+        headers.forEach((value: string, key: string) => updatedHeaders[key] = value);
         Object.getOwnPropertyNames(this).filter((property: string): boolean => property.toLowerCase().includes('api')).forEach((property: string): void => {
             Reflect.defineProperty(this[property], 'defaultHeaders', { value: updatedHeaders });
         });
