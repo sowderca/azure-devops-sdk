@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "eslint": "^5.15.1",
-    "typedoc": "^0.14.2",
+    "typedoc": "^0.24.6",
     "typedoc-plugin-nojekyll": "^1.0.1",
     "typescript": "^3.3.3333"
   }
