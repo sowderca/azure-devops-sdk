@@ -32,7 +32,7 @@
     "query-string": "^6.3.0"
   },
   "devDependencies": {
-    "eslint": "^5.15.1",
+    "eslint": "^9.39.1",
     "typedoc": "^0.14.2",
     "typedoc-plugin-nojekyll": "^1.0.1",
     "typescript": "^3.3.3333"
